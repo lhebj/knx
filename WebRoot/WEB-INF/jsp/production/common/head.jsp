@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="utf-8"
-	import="java.util.*,com.weather.util.WebUtil,com.weather.util.LocalizationUtil,com.weather.util.BrandUtil,com.weather.util.CategoryUtil"%>
+	import="java.util.*,com.knx.web.util.WebUtil,com.knx.web.util.LocalizationUtil,com.knx.web.util.BrandUtil,com.knx.web.util.CategoryUtil"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

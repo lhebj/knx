@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" import="java.util.*,com.weather.util.WebUtil,com.weather.util.LocalizationUtil" %>
+<%@ page language="java" pageEncoding="utf-8" import="java.util.*,com.knx.web.util.WebUtil,com.knx.web.util.LocalizationUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.knx.web.dto.ProductDetailDTO" %>

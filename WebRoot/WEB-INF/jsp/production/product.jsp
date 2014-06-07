@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="utf-8"
-	import="java.util.*,com.weather.util.WebUtil,com.weather.util.LocalizationUtil"%>
+	import="java.util.*,com.knx.web.util.WebUtil,com.knx.web.util.LocalizationUtil"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="com.knx.web.dto.ProductDetailDTO"%>
@@ -9,7 +9,7 @@
 %>
 <%
 	String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -82,8 +82,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!--供货商中文地址-->
 						<div class="address_supplier_zh">
 							<p>
-								<span class="supplier_zh">供货商</span><br /> <span
-									class="address_zh">${productDetailDTO.supplierPrdd}</span>
+								<span class="supplier_zh">供货商</span><br /> 
+								<%if(WebUtil.isGuest()) { %>
+									<span class="address_zh">请登陆后了解详情</span>
+								<%} else {%>
+									<span class="address_zh">${productDetailDTO.supplierPrdd}</span>
+								<%} %>
 							</p>
 						</div>
 						<!--英文地址-->
@@ -110,11 +114,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="left_list">
 								<ul>
 									<li class="list_des"><label class="name">名称：</label> <span
-										class="des_content">${productDetailDTO.productDTO.namePrd} </span>
-									</li>
+										class="des_content">${productDetailDTO.productDTO.namePrd}
+									</span></li>
 									<li class="list_des"><label class="name">品牌：</label> <span
-										class="des_content">${productDetailDTO.brandDTO.nameBrd} </span>
-									</li>
+										class="des_content">${productDetailDTO.brandDTO.nameBrd}
+									</span></li>
 								</ul>
 							</div>
 							<div class="right_list">
@@ -122,22 +126,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<li class="list_des"><label class="name">产地：</label> <span
 										class="des_content">${productDetailDTO.placePrdd} </span></li>
 									<li class="list_des"><label class="name">分类：</label> <span
-										class="des_content">${productDetailDTO.categoryDTO.nameCat} </span>
-									</li>
+										class="des_content">${productDetailDTO.categoryDTO.nameCat}
+									</span></li>
 								</ul>
 							</div>
 						</div>
 						<div class="list_des_wrap">
 							<h2 class="type">产品描述</h2>
-							<p class="product_detail">
-								${productDetailDTO.introductionPrdd}</p>
+							<%if(WebUtil.isGuest()){ %>
+								<p class="product_detail">请登陆后了解详情</p>
+							<%} else { %>
+								<p class="product_detail">${productDetailDTO.introductionPrdd}</p>
+							<%} %>							
 						</div>
 						<div class="list_des_wrap clearfix">
 							<!--产品参数-->
 							<h2 class="type">产品参数</h2>
 							<!--段落型 -->
-							<p class="product_detail">${productDetailDTO.parametersPrdd}
-							</p>
+							<%if(WebUtil.isGuest()){ %>
+								<p class="product_detail">请登陆后了解详情</p>
+							<%} else { %>
+								<p class="product_detail">${productDetailDTO.parametersPrdd}</p>
+							<%} %>
 							<!--list 型-->
 							<!-- <div class="left_list">
 								<ul>
@@ -177,7 +187,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<!--产品特性-->
 							<h2 class="type">产品特性</h2>
 							<!--段落型 || list 任选一-->
-							<p class="product_detail">${productDetailDTO.featuresPrdd}</p>
+							<%if(WebUtil.isGuest()){ %>
+								<p class="product_detail">请登陆后了解详情</p>
+							<%} else { %>
+								<p class="product_detail">${productDetailDTO.featuresPrdd}</p>
+							<%} %>
+							
 							<!--list 型-->
 							<!-- <ul class="product_des_list">
 								<li><span class="des_ico">•</span><span>描述</span></li>
@@ -190,13 +205,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!--start 下载专区-->
 						<div class="list_des_wrap download_wrap clearfix">
 							<h2 class="type">相关下载</h2>
-							<ul>
+							<%if(WebUtil.isGuest()){ %>
+								<p class="product_detail">请登陆后了解详情</p>
+							<%} else { %>
+								<ul>
 								<c:forEach items="${pdownloadDTOList}" var="pdownloadDTO">
 									<li class="list_des"><label class="name">${pdownloadDTO.namePrdl}</label>
-										<a href="product.do?action=download&id=${pdownloadDTO.idPrdl}" title="${pdownloadDTO.fileNamePrdl}"
-										class="des_content">${pdownloadDTO.fileNamePrdl}</a></li>
+										<a href="product.do?action=download&id=${pdownloadDTO.idPrdl}"
+										title="${pdownloadDTO.fileNamePrdl}" class="des_content">${pdownloadDTO.fileNamePrdl}</a></li>
 								</c:forEach>
-							</ul>
+								</ul>
+							<%} %>
+							
 						</div>
 						<!--end 下载专区-->
 					</div>
@@ -205,7 +225,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<%@ include file="common/footer.jsp"%>
 	</div>
-	
+
 	<script type="text/javascript" src="<%=JS_PATH%>detail.js"></script>
 </body>
 </html>

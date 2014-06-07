@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" import="java.util.*,com.weather.util.WebUtil,com.weather.util.LocalizationUtil" %>
+<%@ page language="java" pageEncoding="utf-8" import="java.util.*,com.knx.web.util.WebUtil,com.knx.web.util.LocalizationUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="common/common.jsp" %>
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="tool_control_container  clearfix">
 		<div class="left_wrap">
 			<div class="weatherInfo"> 
-				<p class="position">北京</p>
+				<p class="position">${weatherData.city}</p>
 				<div class="detailInfo">
 					
 						<span class="condition">${weatherData.weather}</span>

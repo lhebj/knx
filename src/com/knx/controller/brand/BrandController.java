@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.knx.pojo.Brand;
 import com.knx.pojo.BrandDetail;
 import com.knx.service.brand.IBrandService;
+import com.knx.service.brandcategorycombination.IBrandCategoryCombinationService;
 import com.knx.service.product.IProductService;
 import com.knx.web.dto.BrandDTO;
 import com.knx.web.dto.ProductDTO;
@@ -34,6 +35,10 @@ public class BrandController {
 	
 	@Resource(name = "productService")
 	private IProductService productService; 
+	
+	@Resource(name = "brandCategoryCombinationService")
+	private IBrandCategoryCombinationService brandCategoryCombinationService;
+	
 	
 	@RequestMapping(params = "action=detail")
 	public String detail(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -92,14 +97,23 @@ public class BrandController {
 	public String list (HttpServletRequest request, HttpServletResponse response, Model model) {
 		Long categoryId = ParamUtils.getLongParameter(request, "categoryId", 0);
 		try{
-			if(categoryId==0){
-				Map<String, List<BrandDTO>> brandDTOMap = BrandUtil.getBrandTree();
-				JSONHelperUtil.outputDTOToJSON(brandDTOMap, response);
-			}else{
+			Map<String, List<BrandDTO>> brandDTOMap = BrandUtil.getBrandTree();
+			if(categoryId > 0){
 				//get by categoryId
-			}
-			
-			
+				List<BrandDTO> dtoList = brandCategoryCombinationService.getBrandListByCategoryId(categoryId);
+				for(String key: brandDTOMap.keySet()){
+					for(BrandDTO dto: brandDTOMap.get(key)){
+						dto.setShow(false);
+						for(BrandDTO showDto: dtoList){
+							if(dto.getIdBrd()==showDto.getIdBrd()){
+								dto.setShow(true);
+							}
+						}
+						
+					}
+				}
+			}			
+			JSONHelperUtil.outputDTOToJSON(brandDTOMap, response);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

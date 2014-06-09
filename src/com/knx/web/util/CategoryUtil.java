@@ -26,7 +26,7 @@ public class CategoryUtil {
 	public static void updateCategoryDTOListCache(){
 		categoryTreeCache = new ArrayList<CategoryDTO>();
 		ICategoryService categoryService = (ICategoryService)BeanFactoryUtil.getBean("categoryService");
-		List<CategoryDTO> list = categoryService.getCategoryDTOListOrderByName();
+		List<CategoryDTO> list = categoryService.getCategoryDTOList();
 		for(CategoryDTO dto: list){
 			categoryTreeCache.add(dto);
 		}

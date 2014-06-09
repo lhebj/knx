@@ -67,10 +67,10 @@ public class CategoryServiceImpl implements ICategoryService {
 	}
 
 	@Override
-	public List<CategoryDTO> getCategoryDTOListOrderByName() {
+	public List<CategoryDTO> getCategoryDTOList() {
 		// TODO Auto-generated method stub
 		List<CategoryDTO> dtoList = new ArrayList<CategoryDTO>();
-		List<Category> list = categoryDAO.getCategoryListOrderByName();
+		List<Category> list = categoryDAO.getCategoryList();
 		for(Category category: list){
 			dtoList.add(category.toDTO());
 		}

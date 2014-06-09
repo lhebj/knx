@@ -7,6 +7,8 @@ $(function(){
 		    $content = $container.find('.content'),
 		    $brandBox = $container.find('.brand_submenubox'),
 		    $classifyBox = $container.find('.classify_submenubox'),
+		    $asideBrandBox = $container.find('#asideBrandBox'),
+		    $asideClassifyBox = $container.find('#asideClassifyBox'),
 		    $registrationWrap = $container.find('.registrationWrap'),
 		    cTop = $content.position().top,
 		    cLeft = $content.position().left,
@@ -15,8 +17,8 @@ $(function(){
 			classifyId =0,
 			head_brand_load_for_id=-1,
 			head_category_load_for_id=-1,
-			left_brand_load_for_id=-1
-			left_category_load_for_id=-1;
+			aside_brand_load_for_id=-1,
+			aside_category_load_for_id=-1;
 
 		 $brandBox.css({
 			top:cTop + 60,
@@ -66,7 +68,12 @@ $(function(){
 					 $.each(a, function (name, key) {  
 				         $("#head_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='brand_li_"+key+"'></div></li>");
 				         $.each(json.result.map[key].list, function (i, brandDTO) { 
-							 $("#brand_li_"+key).append("<a href=\"javascript:;\" data-id=\""+brandDTO.idBrd+"\" class=\"nav_item\">"+brandDTO.nameBrd+" </a>");
+				        	 if(brandDTO.show){
+				        		 $("#brand_li_"+key).append("<a href=\"javascript:;\" data-id=\""+brandDTO.idBrd+"\" class=\"nav_item\">"+brandDTO.nameBrd+" </a>"); 
+				        	 }else{
+				        		 $("#brand_li_"+key).append("<span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
+				        	 }
+							 
 				         }); 
 				     }); 
 					 $brandBox.show();
@@ -89,7 +96,12 @@ $(function(){
 					 json = $.parseJSON(json);
 					if(json.result){
 						 $.each(json.result.list, function (i, categoryDTO) {  
-					         $("#head_category_ul").append("<li><a href=\"javascript:;\" class=\"nav_item\" data-id=\""+categoryDTO.idCat+"\">"+categoryDTO.nameCat+"</a></li>");
+							 if(categoryDTO.show){
+								 $("#head_category_ul").append("<li><a href=\"javascript:;\" class=\"nav_item\" data-id=\""+categoryDTO.idCat+"\">"+categoryDTO.nameCat+"</a></li>");
+							 }else{
+								 $("#head_category_ul").append("<li><span class=\"item_disabled\">"+categoryDTO.nameCat+"</span></li>");
+							 }
+					         
 					     }); 
 						 $classifyBox.show();
 						 head_brand_load_for_id = brandId;
@@ -99,7 +111,7 @@ $(function(){
 				});
 	 	}
 	 	
-	 	//点击导航
+	 	//点击导航中的品牌和分类
 		$container.on('click','.nav',function(){
 			var $this = $(this);
 		    $container.find('.nav').removeClass('current');
@@ -118,7 +130,7 @@ $(function(){
 			}
 		});
 
-		//分类 && 品牌
+		//点击导航中展开的分类和品牌
 		$container.on('click','.nav_item',function(){
 			var $this = $(this),
 				$wrap = $this.parents('.wrap');
@@ -219,47 +231,150 @@ $(function(){
 			});
 		});
 
-		$('.aside_nav .item').on('click',function(){
+		//点击左侧导航中展开的分类和品牌
+		$container.on('click','.item',function(){
+//		$('.aside_nav .item').on('click',function(){
 			var $this = $(this),
 			    $asideNav = $this.parents('.aside_nav'),
-			    className = $asideNav.attr('name');
-			if(className =='brand'){
+			    asideNavId = $asideNav.attr('id');
+			if(asideNavId =='aside_nav_brand'){
 				brandId = $this.attr('id');
 				if(classifyId !='' && brandId !=''){
 					window.location.href ='brand.do?action=detail&id='+brandId+'&categoryId='+classifyId;
 				}else{
 					$asideNav.find('.classification').removeClass('current');
 					$asideNav.siblings('.aside_nav').find('.classification').addClass('current');
-					$asideNav.find('.submenubox').hide();
-					$asideNav.siblings('.aside_nav').find('.submenubox').show();
+					//$asideNav.find('.submenubox').hide();
+					//$asideNav.siblings('.aside_nav').find('.submenubox').show();
+					
+					$asideBrandBox.hide();
+					show_aside_category();
 				}
 			}
-			if(className =='classify'){
+			if(asideNavId =='aside_nav_classify'){
 				classifyId = $this.attr('id');
 				if(classifyId !='' && brandId !=''){
 					window.location.href ='brand.do?action=detail&id='+brandId+'&categoryId='+classifyId;
 				}else{
 				    $asideNav.find('.classification').removeClass('current');
 					$asideNav.siblings('.aside_nav').find('.classification').addClass('current');
-				    $asideNav.find('.submenubox').hide();
-				    $asideNav.siblings('.aside_nav').find('.submenubox').show();
+				    //$asideNav.find('.submenubox').hide();
+				    //$asideNav.siblings('.aside_nav').find('.submenubox').show();
+				    
+				    $asideClassifyBox.hide();
+				    show_aside_brand();
 				}
 			}
 		});
 
+		/*
 		//左侧菜单
 		$('.aside_nav').on({
 			mouseenter:function(){
 				var $this = $(this);
 				$this.find('.classification').addClass('current');
-				$this.find('.submenubox').show();
+				//$this.find('.submenubox').show();
+				show_aside_brand();
 			},
 			mouseleave:function(){
 				var $this = $(this);
 				$this.find('.classification').removeClass('current');
-				$this.find('.submenubox').hide();
+				//$this.find('.submenubox').hide();
+				show_aside_category();
 			}
-		});		
+		});	
+		
+		*/
+		
+		//左侧品牌
+		$('#aside_nav_brand').on({
+			mouseenter:function(){
+				var $this = $(this);
+				$this.find('.classification').addClass('current');
+				show_aside_brand();
+			},
+			mouseleave:function(){
+				var $this = $(this);
+				$this.find('.classification').removeClass('current');
+				//$this.find('.submenubox').hide();
+				$asideBrandBox.hide();
+			}
+		});	
+		
+		//左侧分类 
+		$('#aside_nav_classify').on({
+			mouseenter:function(){
+				var $this = $(this);
+				$this.find('.classification').addClass('current');
+				show_aside_category();
+			},
+			mouseleave:function(){
+				var $this = $(this);
+				$this.find('.classification').removeClass('current');
+				//$this.find('.submenubox').hide();
+				$asideClassifyBox.hide();
+			}
+		});	
+		
+		//show aside brand
+	 	function show_aside_brand(){
+	 		if(aside_category_load_for_id>=0 && aside_category_load_for_id==classifyId){
+	 			$asideBrandBox.show();
+	 			return;
+	 		}
+	 		$.post('brand.do?action=list', {
+	 			categoryId:classifyId
+			}, function(json) {
+				 json = $.parseJSON(json);
+				if(json.result){
+					var a = [];
+					$.each(json.result.map, function(key, val) { a[a.length] = key;  });
+					a.sort();
+					 $.each(a, function (name, key) {  
+				         $("#aside_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='aside_brand_li_"+key+"'></div></li>");
+				         $.each(json.result.map[key].list, function (i, brandDTO) { 
+				        	 if(brandDTO.show){
+				        		 $("#aside_brand_li_"+key).append("<a href=\"javascript:;\" id=\""+brandDTO.idBrd+"\" class=\"item\">"+brandDTO.nameBrd+" </a>"); 
+				        	 }else{
+				        		 $("#aside_brand_li_"+key).append("<span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
+				        	 }
+							 
+				         }); 
+				     }); 
+					 $asideBrandBox.show();
+					 aside_category_load_for_id = classifyId;
+				}else{
+					//$tip.html(json.message).show();
+				}
+			});
+	 	} 
+	 	
+	 	//show aside category
+	 	function show_aside_category(){
+	 		if(aside_brand_load_for_id>=0&&aside_brand_load_for_id == brandId){
+	 			$asideClassifyBox.show();
+	 			return;
+	 		}
+	 		 $.post('category.do?action=list', {
+	 			brandId:brandId
+				}, function(json) {
+					 json = $.parseJSON(json);
+					if(json.result){
+						 $.each(json.result.list, function (i, categoryDTO) {  
+							 if(categoryDTO.show){
+								 $("#aside_category_ul").append("<li><a href=\"javascript:;\" class=\"item\" id=\""+categoryDTO.idCat+"\">"+categoryDTO.nameCat+"</a></li>");
+							 }else{
+								 $("#aside_category_ul").append("<li><span class=\"item_disabled\">"+categoryDTO.nameCat+"</span></li>");
+							 }
+					         
+					     }); 
+						 $asideClassifyBox.show();
+						 aside_brand_load_for_id = brandId;
+					}else{
+						//$tip.html(json.message).show();
+					}
+				});
+	 	}
 	}
 
 	init();

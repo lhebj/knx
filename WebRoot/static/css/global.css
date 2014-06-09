@@ -95,7 +95,10 @@ a,a:focus,a:hover{
     color:#0e76bd;
 }
 .brand_submenubox li .nav_item:hover,.submenubox li .nav_item:hover,.classify_submenubox li .nav_item:hover,.submenubox li .nav_item:hover{
-    color:#0e76bd;
+    color:#0166b1;
+}
+.item_disabled{
+	color:#0e76bd;
 }
 .brand_submenubox .sort_title,.submenubox .sort_title{
     font-weight: bold;

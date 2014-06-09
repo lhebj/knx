@@ -13,5 +13,5 @@ public interface ICategoryDAO {
 	
 	public void deleteCategory(Long id);
 	
-	public List<Category> getCategoryListOrderByName(); 
+	public List<Category> getCategoryList(); 
 }

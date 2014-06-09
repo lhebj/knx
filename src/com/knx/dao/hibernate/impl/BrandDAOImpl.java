@@ -33,7 +33,7 @@ public class BrandDAOImpl implements IBrandDAO {
 	@Override
 	public void deleteBrand(Long id) {
 		// TODO Auto-generated method stub
-		String sql = " delete from pro_brand_brd where id_brd=:id_brd";
+		String sql = " delete from knx_brand_brd where id_brd=:id_brd";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("id_brd", id);
 		basicHibernateDao.executeSql(sql, param);

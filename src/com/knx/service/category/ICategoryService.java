@@ -20,5 +20,5 @@ public interface ICategoryService {
 	
 	public  Map<String, Object> fullDeleteCategoryById(Long id, HttpServletRequest request);
 	
-	public List<CategoryDTO> getCategoryDTOListOrderByName(); 
+	public List<CategoryDTO> getCategoryDTOList(); 
 }

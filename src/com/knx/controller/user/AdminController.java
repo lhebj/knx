@@ -1,5 +1,6 @@
 package com.knx.controller.user;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import com.knx.pojo.Training;
 import com.knx.pojo.User;
 import com.knx.service.about.IAboutService;
 import com.knx.service.brand.IBrandService;
+import com.knx.service.brandcategorycombination.IBrandCategoryCombinationService;
 import com.knx.service.category.ICategoryService;
 import com.knx.service.index.IIndexService;
 import com.knx.service.news.INewsService;
@@ -41,6 +43,7 @@ import com.knx.web.dto.ProductDetailDTO;
 import com.knx.web.dto.ProductDownloadDTO;
 import com.knx.web.dto.TrainingDTO;
 import com.knx.web.dto.UserDTO;
+import com.knx.web.util.CategoryUtil;
 import com.knx.web.util.JSONHelperUtil;
 import com.knx.web.util.LocalizationUtil;
 import com.knx.web.util.PageUtil;
@@ -74,6 +77,9 @@ public class AdminController {
 
 	@Resource(name = "aboutService")
 	private IAboutService aboutService;
+
+	@Resource(name = "brandCategoryCombinationService")
+	private IBrandCategoryCombinationService brandCategoryCombinationService;
 
 	@RequestMapping(params = "action=home")
 	public String home(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -114,7 +120,7 @@ public class AdminController {
 	public String postIndex(HttpServletRequest request, HttpServletResponse response, Model model) {
 		String positionIdx = ParamUtils.getParameter(request, "position");
 		try {
-			if (positionIdx == null) {//TODO
+			if (positionIdx == null) {// TODO
 				return "redirect:/error.do?action=1&message=" + URLEncoder.encode(LocalizationUtil.getClientString("Parameter.error", request), "utf-8");
 			}
 			model.addAttribute("positionIdx", positionIdx);
@@ -303,10 +309,63 @@ public class AdminController {
 		return "admin/brand/postBrand";
 	}
 
+	@RequestMapping(params = "action=manageBrandCategoryCombination")
+	public String manageBrandCategoryCombination(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Long brandId = ParamUtils.getLongParameter(request, "brandId", 0);
+		try {
+			if (brandId == 0) {
+				return "redirect:/error.do?action=1&message=" + URLEncoder.encode(LocalizationUtil.getClientString("Parameter.error", request), "utf-8");
+
+			}
+			Brand brand = brandService.findBrandById(brandId);
+			if (brand == null) {
+				return "redirect:/error.do?action=1&message=" + URLEncoder.encode(LocalizationUtil.getClientString("Parameter.error", request), "utf-8");
+			}
+			model.addAttribute("brandDTO", brand.toDTO());
+			//已有分类
+			List<CategoryDTO> dtoList = brandCategoryCombinationService.getCategoryListByBrandId(brandId);
+			model.addAttribute("categoryDTOList", dtoList);
+			//所有分类，设置未选分类
+			List<CategoryDTO> allCategoryDTOList = CategoryUtil.getCategoryTree();
+			for(CategoryDTO dto: allCategoryDTOList){
+				dto.setShow(false);
+				for(CategoryDTO showDto: dtoList){
+					if(dto.getIdCat()==showDto.getIdCat()){
+						dto.setShow(true);
+					}
+				}
+			}
+			model.addAttribute("allCategoryDTOList", allCategoryDTOList);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "admin/brand/manageBrandCategoryCombination";
+	}
+
+	@RequestMapping(params = "action=postBrandCategoryCombination")
+	public String postBrandCategoryCombination(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Long id = ParamUtils.getLongParameter(request, "id", 0);
+		if (id != 0) {
+			Brand brand = brandService.findBrandById(id);
+			if (brand != null) {
+				model.addAttribute("brandDTO", brand.toDTO());
+			}
+
+			BrandDetail brandDetail = brandService.findBrandDetailByBrand(brand);
+			if (brandDetail != null) {
+				model.addAttribute("brandDetailDTO", brandDetail.toDTO());
+			}
+
+		}
+
+		return "admin/brand/postBrand";
+	}
+
 	@RequestMapping(params = "action=manageCategory")
 	public String manageCategory(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 
-		model.addAttribute("categoryDTOList", categoryService.getCategoryDTOListOrderByName());
+		model.addAttribute("categoryDTOList", categoryService.getCategoryDTOList());
 		return "admin/category/manageCategory";
 	}
 
@@ -378,7 +437,7 @@ public class AdminController {
 			}
 		}
 		List<BrandDTO> brandDTOList = brandService.getBrandDTOListOrderByName();
-		List<CategoryDTO> categoryDTOList = categoryService.getCategoryDTOListOrderByName();
+		List<CategoryDTO> categoryDTOList = categoryService.getCategoryDTOList();
 		model.addAttribute("brandDTOList", brandDTOList);
 		model.addAttribute("categoryDTOList", categoryDTOList);
 

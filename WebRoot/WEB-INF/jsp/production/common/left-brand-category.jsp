@@ -6,11 +6,11 @@
 
 <div class="leftside clearfix">
 	<ul>
-		<li class="aside_nav" name="brand"><a class="classification" name="brand"
-			href="javascript:;">品牌</a>
-			<div class="submenubox">
+		<li class="aside_nav" id="aside_nav_brand"><a class="classification" href="javascript:;">品牌</a>
+			<div class="submenubox" id="asideBrandBox">
 				<div class="subcate">
-					<ul>
+					<ul id="aside_brand_ul">
+					<!-- 
 						<c:forEach items="${brandTreeCache}" var="brandDTOEntry">
 							<li><span class="sort_title">${brandDTOEntry.key}</span>
 								<div class="detail">
@@ -19,18 +19,20 @@
 									</c:forEach>
 								</div></li>
 						</c:forEach>
+					 -->
 					</ul>
 				</div>
 			</div></li>
-		<li class="aside_nav" name="classify"><a class="classification" name="classify"
-			href="javascript:;">分类</a>
-			<div class="submenubox">
+		<li class="aside_nav" id="aside_nav_classify"><a class="classification" href="javascript:;">分类</a>
+			<div class="submenubox" id="asideClassifyBox">
 				<div class="subcate">
-					<ul>
+					<ul id="aside_category_ul">
+						<!-- 
 						<c:forEach items="${categoryTreeCache}" var="categoryDTO">
 							<li><a href="javascript:;" class="item"
 								id="${categoryDTO.idCat}">${categoryDTO.nameCat}</a></li>
 						</c:forEach>
+						 -->
 					</ul>
 				</div>
 			</div></li>

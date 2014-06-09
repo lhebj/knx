@@ -47,7 +47,9 @@
 						<a href="brandAdmin.do?action=delete&id=${brandDto.idBrd}"  onclick="javascript:return del_sure()"><button
 								style="width: 82px;" class="btn btn-primary" type="button">删除</button></a>
 						<a href="admin.do?action=manageProduct&brandId=${brandDto.idBrd}"><button
-								style="width: 82px;" class="btn btn-primary" type="button">产品管理</button></a></td>
+								style="width: 82px;" class="btn btn-primary" type="button">产品管理</button></a>
+						<a href="admin.do?action=manageBrandCategoryCombination&brandId=${brandDto.idBrd}"><button
+								style="width: 82px;" class="btn btn-primary" type="button">分类管理</button></a></td>
 
 				</tr>
 			</c:forEach>

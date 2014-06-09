@@ -6,6 +6,7 @@ public class BrandDTO {
 	private Long idBrd;
 	private String nameBrd;
 	private String initialsBrd;
+	private Boolean show;
 	public Long getIdBrd() {
 		return idBrd;
 	}
@@ -23,6 +24,12 @@ public class BrandDTO {
 	}
 	public void setInitialsBrd(String initialsBrd) {
 		this.initialsBrd = initialsBrd;
+	}
+	public Boolean getShow() {
+		return show;
+	}
+	public void setShow(Boolean show) {
+		this.show = show;
 	}
 
 

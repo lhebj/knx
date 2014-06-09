@@ -5,6 +5,7 @@ public class CategoryDTO {
 	private Long idCat;
 	private String nameCat;
 	private String initialsCat;
+	private Boolean show;
 	public Long getIdCat() {
 		return idCat;
 	}
@@ -22,6 +23,12 @@ public class CategoryDTO {
 	}
 	public void setInitialsCat(String initialsCat) {
 		this.initialsCat = initialsCat;
+	}
+	public Boolean getShow() {
+		return show;
+	}
+	public void setShow(Boolean show) {
+		this.show = show;
 	}
 
 	

@@ -41,8 +41,8 @@ public class CategoryDAOImpl implements ICategoryDAO {
 		basicHibernateDao.executeSql(sql, param);
 	}
 	
-	public List<Category> getCategoryListOrderByName (){
-		String hql = " from Category where isEnabledCat=true order by nameCat";
+	public List<Category> getCategoryList (){
+		String hql = " from Category where isEnabledCat=true";
 		return basicHibernateDao.getResultList(hql, new HashMap<String, Object>());
 	}
 

@@ -78,6 +78,7 @@ public class Category implements java.io.Serializable {
 		dto.setIdCat(idCat);
 		dto.setNameCat(nameCat);
 		dto.setInitialsCat(initialsCat);
+		dto.setShow(true);
 		return dto;
 	}
 

@@ -88,6 +88,7 @@ public class Brand implements java.io.Serializable {
 		dto.setIdBrd(idBrd);
 		dto.setNameBrd(nameBrd);
 		dto.setInitialsBrd(initialsBrd);
+		dto.setShow(true);
 		return dto;
 	}
 

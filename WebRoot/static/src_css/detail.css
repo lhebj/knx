@@ -1,0 +1,155 @@
+/* .logo{
+	background: url('../image/logo.png') no-repeat scroll 0 0 transparent;
+	height: 90px;
+	margin:40px 36px;
+} */
+.headerWrap{position: relative;}
+.headerWrap ul{
+	margin-left: 36px;
+}
+.headerWrap li{
+	float: left;
+	text-align: center;
+}
+.headerWrap .nav{
+	width:100px;
+	height:20px;
+	display: inline-block;
+	border-left: 1px solid #838383;
+	color:#000;
+}
+.headerWrap .current{color:#0e76bd;border-left:none;background: url('../image/nav_icon.png') repeat-y scroll 0 0 transparent;}
+.searchWrap{
+	position:absolute;
+	top:-40px;
+	right:25px;
+}
+.searchWrap .rightAside{margin-bottom: 10px;}
+.searchWrap .rightAside .cn{margin: 0 13px 0 10px;display: inline-block;}
+.searchWrap .rightAside .forum{margin-right: 9px;display: inline-block;}
+
+.content{margin:60px 0 0  36px;overflow: hidden;}
+.content .leftside{width: 223px;}
+.content .leftside,.content .listContainer{float: left;}
+.content .listContainer{width: 600px;padding-left:30px;}
+
+.item_container{
+	border: 1px solid #8abadc;
+}
+.left_item{
+	float: left;
+	width: 210px;
+	padding: 20px;
+}
+.right_item{
+	float: left;
+	padding: 16px;
+	width: 314px;
+	border-left: 1px solid #8ABADC;
+}
+.listWrap{
+	padding-bottom: 26px;
+	border-bottom: 1px solid #8abadc;
+}
+.product_img{
+  padding: 0 12px;
+  margin-bottom: 72px;
+}
+.product_img .img{
+	/*width: 184px;
+	height: 184px;
+	*/
+	border: none;
+}
+.listWrap .list{
+	float: left;
+	margin:0 5px 5px 0;
+}
+.listWrap .noLeft{
+	margin-right:0;
+}
+.listWrap .list .img_item{
+	width: 64px;
+	height: 64px;
+	display: inline-block;
+	border: 1px solid #c0c1c1;
+}
+.listWrap .list .img_item:hover{
+	border: 1px solid #8abadc;
+}
+.listWrap .list .smallImg{
+	height: 64px;
+	width: 64px;
+}
+.address_supplier_zh{
+	margin:26px 0;
+	line-height: 22px;
+}
+.address_supplier_en{
+	line-height: 22px;
+}
+.address_supplier_zh span,.address_supplier_en span,{
+	font:normal 14px "Microsoft YaHei",微软雅黑;
+}
+.type{
+	font:bold 14px "Microsoft YaHei",微软雅黑;
+	margin-bottom: 10px;
+}
+.right_item .list_des_wrap{
+	border-bottom: 1px solid #8abadc;
+	padding:26px 0 30px;
+}
+.right_item .list_des_wrap .topImg{
+	height: 54px;
+	width: 243px;
+}
+.right_item .list_des_wrap label.name,.right_item .list_des_wrap .des_content{
+	float:left;
+}
+.right_item .list_des_wrap label.name{
+	width: 40px;
+	font:bold 12px "Microsoft YaHei",微软雅黑;
+}
+.right_item .list_des_wrap .des_content{
+	width: 116px;
+	word-wrap:break-word;
+}
+.right_item .list_des_wrap .product_detail{
+	word-wrap:break-word;
+}
+.left_list,.right_list{
+	float: left;
+	width: 156px;
+}
+.right_list{
+	margin-left: 2px;
+}
+.product_des_list .des_ico{
+	display: inline-block;
+	margin-right: 11px;
+	color:#808184;
+	float: left;
+	width: 3px;
+}
+.product_des_list li{
+	clear:both;
+}
+.product_des_list .list{
+	width: 300px;
+	float: left;
+}
+.right_item .download_wrap label.name{
+	width: 80px;
+	font:bold 12px "Microsoft YaHei",微软雅黑; 
+}
+.right_item .download_wrap .des_content{
+	width: 234px;
+	word-wrap:break-word;
+	color: #333;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.right_item .download_wrap .des_content:hover{
+	color:#069;
+}

@@ -1,0 +1,1 @@
+$(function(){var A=$(".classification ");A.on("mouseenter",function(){});A.on({mouseenter:function(){var B=$(this);B.siblings(".classify-list").show()},mouseleave:function(){var B=$(this);B.siblings(".classify-list").hide()}})});

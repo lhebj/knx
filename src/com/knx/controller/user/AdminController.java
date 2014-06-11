@@ -342,26 +342,7 @@ public class AdminController {
 		}
 		return "admin/brand/manageBrandCategoryCombination";
 	}
-
-	@RequestMapping(params = "action=postBrandCategoryCombination")
-	public String postBrandCategoryCombination(HttpServletRequest request, HttpServletResponse response, Model model) {
-		Long id = ParamUtils.getLongParameter(request, "id", 0);
-		if (id != 0) {
-			Brand brand = brandService.findBrandById(id);
-			if (brand != null) {
-				model.addAttribute("brandDTO", brand.toDTO());
-			}
-
-			BrandDetail brandDetail = brandService.findBrandDetailByBrand(brand);
-			if (brandDetail != null) {
-				model.addAttribute("brandDetailDTO", brandDetail.toDTO());
-			}
-
-		}
-
-		return "admin/brand/postBrand";
-	}
-
+	
 	@RequestMapping(params = "action=manageCategory")
 	public String manageCategory(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 

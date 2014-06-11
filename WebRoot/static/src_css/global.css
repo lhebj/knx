@@ -98,7 +98,7 @@ a,a:focus,a:hover{
     color:#0166b1;
 }
 .item_disabled{
-	color:#0e76bd;
+	color:#333333;
 }
 .brand_submenubox .sort_title,.submenubox .sort_title{
     font-weight: bold;
@@ -109,7 +109,7 @@ a,a:focus,a:hover{
     float: left;
 }
 .brand_submenubox .detail a,.submenubox .detail a,.classify_submenubox li a,.submenubox li a{
-    color: #333;
+    color: #0e76bd;
 }
 .content .leftside .classification{
     padding-left:16px;

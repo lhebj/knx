@@ -151,7 +151,7 @@
 			</tr>
 			<tr>
 				<td width='60'>logo图片</td>
-				<td><input name="logo" type="FILE" id="logo" size="50" /></td>
+				<td><input name="logo" type="FILE" id="logo" size="50" />${brandDetailDTO.logoFileName}</td>
 			</tr>
 			<tr>
 				<td width='60'></td>

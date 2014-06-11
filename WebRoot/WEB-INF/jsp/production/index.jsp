@@ -153,6 +153,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 	<script type="text/javascript" src="<%=JS_PATH%>jquery.js"></script>
-	<script type="text/javascript" src="<%=JS_PATH%>index.js"></script>
+	<script type="text/javascript" src="<%=JS_PATH%>index.js?version=<%=version%>"></script>
 </body>
 </html>

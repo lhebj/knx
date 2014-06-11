@@ -13,6 +13,11 @@ public class BrandUtil {
 
 	public static Map<String, List<BrandDTO>> getBrandTree(){
 		if(brandTreeCache !=null && brandTreeCache.size()>0 ){
+			for(String key: brandTreeCache.keySet()){
+				for(BrandDTO dto: brandTreeCache.get(key)){
+					dto.setShow(true);
+				}
+			}
 			return brandTreeCache;
 		}
 		updateBrandDTOListCache();

@@ -119,6 +119,7 @@ public class BrandDetail implements java.io.Serializable {
 		dto.setIdBrd(brand.getIdBrd());
 		if(getLogo() != null){
 			dto.setLogoPath(UploadFileUtil.getContentPath(getLogo()));
+			dto.setLogoFileName(logo.getOriginalFilenameCon());
 		}	
 		return dto;
 	}

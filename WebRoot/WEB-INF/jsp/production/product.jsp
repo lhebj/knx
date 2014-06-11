@@ -226,6 +226,6 @@
 		<%@ include file="common/footer.jsp"%>
 	</div>
 
-	<script type="text/javascript" src="<%=JS_PATH%>detail.js"></script>
+	<script type="text/javascript" src="<%=JS_PATH%>detail.js?version=<%=version%>"></script>
 </body>
 </html>

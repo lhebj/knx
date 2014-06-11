@@ -27,7 +27,7 @@ public class CategoryController {
 		Long brandId = ParamUtils.getLongParameter(request, "brandId", 0);
 		try{
 			List<CategoryDTO> categoryDTOList = CategoryUtil.getCategoryTree();
-			if(brandId >= 0){
+			if(brandId > 0){
 				//get by brandId
 				List<CategoryDTO> dtoList = brandCategoryCombinationService.getCategoryListByBrandId(brandId);
 				for(CategoryDTO dto: categoryDTOList){

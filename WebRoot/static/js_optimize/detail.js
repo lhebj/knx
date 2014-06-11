@@ -1,0 +1,1 @@
+$(function(){var B=$(".img_item"),A=$("#largeImg");B.on({mouseenter:function(){var C=$(this).find("img").attr("src");if(C!=""){A.attr("src",C)}}})});

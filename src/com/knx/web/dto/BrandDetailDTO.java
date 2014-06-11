@@ -5,6 +5,7 @@ public class BrandDetailDTO {
 	private Long idBrd;
 	private String introductionBrdd;	
 	private String logoPath;
+	private String logoFileName;
 	private String dateCreateBrdd;
 	private String nameBrd;
 	public Long getIdBrd() {
@@ -24,6 +25,12 @@ public class BrandDetailDTO {
 	}
 	public void setLogoPath(String logoPath) {
 		this.logoPath = logoPath;
+	}
+	public String getLogoFileName() {
+		return logoFileName;
+	}
+	public void setLogoFileName(String logoFileName) {
+		this.logoFileName = logoFileName;
 	}
 	public String getDateCreateBrdd() {
 		return dateCreateBrdd;

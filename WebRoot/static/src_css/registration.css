@@ -1,0 +1,68 @@
+/* .logo{
+	background: url('../image/logo.png') no-repeat scroll 0 0 transparent;
+	height: 90px;
+	margin:40px 36px;
+} */
+.headerWrap{position: relative;}
+.headerWrap ul{
+	margin-left: 36px;
+}
+.headerWrap li{
+	float: left;
+	text-align: center;
+}
+.headerWrap .nav{
+	width:100px;
+	height:20px;
+	display: inline-block;
+	border-left: 1px solid #838383;
+    color:#000;
+}
+.headerWrap .current{color:#0e76bd;border-left:none;background: url('../image/nav_icon.png') repeat-y scroll 0 0 transparent;}
+.searchWrap{
+	position:absolute;
+	top:-40px;
+	right:25px;
+}
+.searchWrap .rightAside{margin-bottom: 10px;}
+.searchWrap .rightAside .cn{margin: 0 13px 0 10px;display: inline-block;}
+.searchWrap .rightAside .forum{margin-right: 9px;display: inline-block;}
+.content{
+	margin: 60px 0 0 36px;
+	position: relative;
+}
+.content .registrationWrap{
+	position: absolute;
+	top:0;
+	right: 0;
+	height: 476px;
+	width: 620px;
+	background-color: #fff;
+	padding-left: 66px;
+	z-index: 1000;
+	opacity: .8;
+	filter:alpha(opacity=80);
+}
+.registrationWrap .registration_info{width: 280px;float: left;}
+.registrationWrap .registration_info label,.registrationWrap .login_info label{display: block;}
+.registrationWrap .registration_info .wrap{margin-bottom:6px;}
+.registrationWrap .registration_info .reg_txt{margin-top: 5px;display: block;height: 24px;line-height: 24px;}
+.registrationWrap .registration_info .send_email,.registrationWrap .registration_info .agreement,.registrationWrap .registration_info .required{
+	margin-bottom: 20px;
+}
+.registrationWrap .registration_info .submit{background-color: #0e76bd;padding:5px 20px;cursor: pointer;color:#fff;}
+.registrationWrap .login_info{width: 340px;float: left;}
+.registrationWrap .login_info .wrap{margin-bottom: 20px;}
+.registrationWrap .login_info .wrap input{height: 24px;line-height: 24px;}
+.registrationWrap .login_info .login_btn{margin-right: 20px;background-color: #0e76bd;padding:5px 20px;color:#fff;cursor: pointer;}
+.content .figure{
+	float: left;
+}
+.content .figure{
+	margin-right: 5px;
+}
+.footer{margin-left:36px;}
+.footer li{
+	float:left;
+	margin-right: 6px;
+}

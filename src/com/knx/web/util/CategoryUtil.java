@@ -13,6 +13,9 @@ public class CategoryUtil {
 
 	public static List<CategoryDTO> getCategoryTree(){
 		if(categoryTreeCache !=null && categoryTreeCache.size()>0 ){
+			for(CategoryDTO dto: categoryTreeCache){
+				dto.setShow(true);
+			}
 			return categoryTreeCache;
 		}
 		updateCategoryDTOListCache();

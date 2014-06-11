@@ -15,10 +15,10 @@ $(function(){
 		    $tip = $('#tip'),
 		    brandId = 0,
 			classifyId =0,
-			head_brand_load_for_id=-1,
-			head_category_load_for_id=-1,
-			aside_brand_load_for_id=-1,
-			aside_category_load_for_id=-1;
+			head_brand_load_for_0=0,
+			head_category_load_for_0=0,
+			aside_brand_load_for_0=0,
+			aside_category_load_for_0=0;
 
 		 $brandBox.css({
 			top:cTop + 60,
@@ -53,10 +53,16 @@ $(function(){
 	 	
 	 	//show head brand
 	 	function show_head_brand(){
-	 		if(head_category_load_for_id>=0 && head_category_load_for_id==classifyId){
+	 		/*if(head_category_load_for_id>=0 && head_category_load_for_id==classifyId){
 	 			$brandBox.show();
 	 			return;
 	 		}
+	 		*/
+	 		if(head_brand_load_for_0==1 && classifyId==0){
+	 			$brandBox.show();
+	 			return;
+ 			}
+ 		
 	 		$.post('brand.do?action=list', {
 	 			categoryId:classifyId
 			}, function(json) {
@@ -65,6 +71,7 @@ $(function(){
 					var a = [];
 					$.each(json.result.map, function(key, val) { a[a.length] = key;  });
 					a.sort();
+					$("#head_brand_ul").empty();
 					 $.each(a, function (name, key) {  
 				         $("#head_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='brand_li_"+key+"'></div></li>");
 				         $.each(json.result.map[key].list, function (i, brandDTO) { 
@@ -77,7 +84,13 @@ $(function(){
 				         }); 
 				     }); 
 					 $brandBox.show();
-					 head_category_load_for_id = classifyId;
+					 //head_category_load_for_id = classifyId;
+					 //cache when classifyId=0
+					 if(classifyId==0){
+						 head_brand_load_for_0 = 1;
+					 }else {
+						 head_brand_load_for_0 = 0;
+					 }
 				}else{
 					//$tip.html(json.message).show();
 				}
@@ -86,15 +99,22 @@ $(function(){
 	 	
 	 	//show category
 	 	function show_head_category(){
-	 		if(head_brand_load_for_id>=0&&head_brand_load_for_id == brandId){
+	 		/*if(head_brand_load_for_id>=0&&head_brand_load_for_id == brandId){
 	 			$classifyBox.show();
 	 			return;
 	 		}
+	 		*/
+	 		if(head_category_load_for_0==1&&brandId==0){
+	 			$classifyBox.show();
+ 				return;
+	 		}
+ 		
 	 		 $.post('category.do?action=list', {
 	 			brandId:brandId
 				}, function(json) {
 					 json = $.parseJSON(json);
 					if(json.result){
+						$("#head_category_ul").empty();
 						 $.each(json.result.list, function (i, categoryDTO) {  
 							 if(categoryDTO.show){
 								 $("#head_category_ul").append("<li><a href=\"javascript:;\" class=\"nav_item\" data-id=\""+categoryDTO.idCat+"\">"+categoryDTO.nameCat+"</a></li>");
@@ -104,7 +124,13 @@ $(function(){
 					         
 					     }); 
 						 $classifyBox.show();
-						 head_brand_load_for_id = brandId;
+						 //head_brand_load_for_id = brandId;
+						 //cache when brandId=0
+						 if(brandId==0){
+							 head_category_load_for_0 = 1;
+						 }else {
+							 head_category_load_for_0 = 0;
+						 }
 					}else{
 						//$tip.html(json.message).show();
 					}
@@ -119,9 +145,11 @@ $(function(){
 		    $registrationWrap.hide();
 
 			if($this.attr('id') === 'J_brand'){
+				classifyId=0;
 				$classifyBox.hide();
 				show_head_brand();				
 			}else if($this.attr('id') === 'J_classify'){
+				brandId=0;
 			    $brandBox.hide();
 			    show_head_category();
 			}else{
@@ -291,6 +319,7 @@ $(function(){
 			mouseenter:function(){
 				var $this = $(this);
 				$this.find('.classification').addClass('current');
+				brandId=0;
 				show_aside_brand();
 			},
 			mouseleave:function(){
@@ -306,6 +335,7 @@ $(function(){
 			mouseenter:function(){
 				var $this = $(this);
 				$this.find('.classification').addClass('current');
+				classifyId=0;
 				show_aside_category();
 			},
 			mouseleave:function(){
@@ -318,10 +348,14 @@ $(function(){
 		
 		//show aside brand
 	 	function show_aside_brand(){
-	 		if(aside_category_load_for_id>=0 && aside_category_load_for_id==classifyId){
+	 		/*if(aside_category_load_for_id>=0 && aside_category_load_for_id==classifyId){
 	 			$asideBrandBox.show();
 	 			return;
-	 		}
+	 		}*/
+	 		if(aside_brand_load_for_0==1 && classifyId==0){
+	 			$asideBrandBox.show();
+	 			return;
+ 			}
 	 		$.post('brand.do?action=list', {
 	 			categoryId:classifyId
 			}, function(json) {
@@ -330,6 +364,7 @@ $(function(){
 					var a = [];
 					$.each(json.result.map, function(key, val) { a[a.length] = key;  });
 					a.sort();
+					$("#aside_brand_ul").empty();
 					 $.each(a, function (name, key) {  
 				         $("#aside_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='aside_brand_li_"+key+"'></div></li>");
 				         $.each(json.result.map[key].list, function (i, brandDTO) { 
@@ -342,7 +377,13 @@ $(function(){
 				         }); 
 				     }); 
 					 $asideBrandBox.show();
-					 aside_category_load_for_id = classifyId;
+					 //aside_category_load_for_id = classifyId;
+					 //cache when classifyId==0
+					 if(classifyId==0){
+						 aside_brand_load_for_0=1;
+					 }else{
+						 aside_brand_load_for_0=0;
+					 }
 				}else{
 					//$tip.html(json.message).show();
 				}
@@ -351,15 +392,20 @@ $(function(){
 	 	
 	 	//show aside category
 	 	function show_aside_category(){
-	 		if(aside_brand_load_for_id>=0&&aside_brand_load_for_id == brandId){
+	 		/*if(aside_brand_load_for_id>=0&&aside_brand_load_for_id == brandId){
 	 			$asideClassifyBox.show();
 	 			return;
-	 		}
+	 		}*/
+	 		if(aside_category_load_for_0==1&&brandId==0){
+ 				$asideClassifyBox.show();
+ 				return;
+ 			}
 	 		 $.post('category.do?action=list', {
 	 			brandId:brandId
 				}, function(json) {
 					 json = $.parseJSON(json);
 					if(json.result){
+						$("#aside_category_ul").empty();
 						 $.each(json.result.list, function (i, categoryDTO) {  
 							 if(categoryDTO.show){
 								 $("#aside_category_ul").append("<li><a href=\"javascript:;\" class=\"item\" id=\""+categoryDTO.idCat+"\">"+categoryDTO.nameCat+"</a></li>");
@@ -369,7 +415,13 @@ $(function(){
 					         
 					     }); 
 						 $asideClassifyBox.show();
-						 aside_brand_load_for_id = brandId;
+						 //aside_brand_load_for_id = brandId;
+						 //cache when brandId==0
+						 if(brandId==0){
+							 aside_category_load_for_0=1;
+						 }else{
+							 aside_category_load_for_0=0;
+						 }
 					}else{
 						//$tip.html(json.message).show();
 					}

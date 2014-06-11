@@ -17,8 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="<%=LocalizationUtil.getClientString("SEO.Keywords", request) %>">
 	<meta http-equiv="description" content="<%=LocalizationUtil.getClientString("SEO.Description", request) %>">
-<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>global.css">
-<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>news.css">
+<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>global.css?version=<%=version%>">
+<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>news.css?version=<%=version%>">
 </head>
 <body>
 	<div class="container clearfix">

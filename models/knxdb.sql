@@ -250,23 +250,26 @@ alter table knx_category_cat comment '分类';
 create table knx_brand_category_bc
 (
    id_bc                bigint NOT NULL AUTO_INCREMENT,
-   idbrd_bc             bigint,
-   idcat_bc             bigint,
+   id_brd_bc             bigint,
+   id_cat_bc             bigint,
    PRIMARY KEY(id_bc)
 );
-insert into knx_brand_category_bc values (1,1,1);
-insert into knx_brand_category_bc values (1,1,2);
-insert into knx_brand_category_bc values (1,1,3);
-insert into knx_brand_category_bc values (1,1,4);
-insert into knx_brand_category_bc values (1,1,5);
-insert into knx_brand_category_bc values (1,1,6);
+CREATE INDEX id_brd_bc ON knx_brand_category_bc(id_brd_bc);
+CREATE INDEX id_cat_bc ON knx_brand_category_bc(id_cat_bc);
 
-insert into knx_brand_category_bc values (1,2,11);
-insert into knx_brand_category_bc values (1,2,12);
-insert into knx_brand_category_bc values (1,2,13);
-insert into knx_brand_category_bc values (1,2,14);
-insert into knx_brand_category_bc values (1,2,15);
-insert into knx_brand_category_bc values (1,2,16);
+insert into knx_brand_category_bc values (1,1,1);
+insert into knx_brand_category_bc values (2,1,2);
+insert into knx_brand_category_bc values (3,1,3);
+insert into knx_brand_category_bc values (4,1,4);
+insert into knx_brand_category_bc values (5,1,5);
+insert into knx_brand_category_bc values (6,1,6);
+
+insert into knx_brand_category_bc values (7,2,11);
+insert into knx_brand_category_bc values (8,2,12);
+insert into knx_brand_category_bc values (9,2,13);
+insert into knx_brand_category_bc values (10,2,14);
+insert into knx_brand_category_bc values (11,2,15);
+insert into knx_brand_category_bc values (12,2,16);
 
 /*==============================================================*/
 /* Table: knx_news_n                                            */

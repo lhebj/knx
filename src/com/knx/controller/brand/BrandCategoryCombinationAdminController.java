@@ -84,7 +84,7 @@ public class BrandCategoryCombinationAdminController {
 		Long brandId = ParamUtils.getLongParameter(request, "brandId", 0);
 		String categoryIds[] = request.getParameterValues("categoryIds");		
 		try {
-			if (brandId == 0 || categoryIds.length == 0) {
+			if (brandId == 0 || categoryIds == null || categoryIds.length == 0) {
 				return "redirect:/error.do?action=1&message=" + URLEncoder.encode(LocalizationUtil.getClientString("Parameter.error", request), "utf-8");
 			}
 			for(String categoryIdStr: categoryIds){

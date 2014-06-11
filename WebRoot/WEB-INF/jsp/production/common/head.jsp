@@ -6,7 +6,7 @@
 <c:set var="brandTreeCache" value="<%=BrandUtil.getBrandTree()%>" scope="page" />
 <c:set var="categoryTreeCache" value="<%=CategoryUtil.getCategoryTree()%>" scope="page" />
 <script type="text/javascript" src="<%=JS_PATH %>jquery.js"></script>
-<script type="text/javascript" src="<%=JS_PATH %>header.js"></script>
+<script type="text/javascript" src="<%=JS_PATH %>header.js?version=<%=version%>"></script>
 <div class="logoWrap">
 	<a href="/knx" class="logo">
 		<img src="<%= IMAGE_PATH %>/logo.png" alt="logo"/>

@@ -60,7 +60,7 @@ public class BrandCategoryCombinationDAOImpl implements IBrandCategoryCombinatio
 	@Override
 	public List<BrandCategoryCombination> getCategoryListByBrandId(Long brandId) {
 		// TODO Auto-generated method stub
-		String hql = " from BrandCategoryCombination bcc where brand.idBrd=:idBrd ";
+		String hql = " from BrandCategoryCombination bcc where brand.idBrd=:idBrd order by category.idCat";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("idBrd", brandId);
 		return basicHibernateDao.getResultList(0, 0, hql, param);
@@ -69,7 +69,7 @@ public class BrandCategoryCombinationDAOImpl implements IBrandCategoryCombinatio
 	@Override
 	public List<BrandCategoryCombination> getBrandListByCategoryId(Long categoryId) {
 		// TODO Auto-generated method stub
-		String hql = " from BrandCategoryCombination where category.idCat=:idCat ";
+		String hql = " from BrandCategoryCombination where category.idCat=:idCat order by brand.idBrd";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("idCat", categoryId);
 		return basicHibernateDao.getResultList(0, 0, hql, param);

@@ -77,6 +77,6 @@ body {
 	</div>
 	<script src="assets/js/jquery-2.1.0.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/knx/login.js?version=<%=version%>"></script>
+	<script src="assets/js/knx/login.js"></script>
 </body>
 </html>

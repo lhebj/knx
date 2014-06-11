@@ -18,7 +18,8 @@ $(function(){
 			head_brand_load_for_0=0,
 			head_category_load_for_0=0,
 			aside_brand_load_for_0=0,
-			aside_category_load_for_0=0;
+			aside_category_load_for_0=0,
+			head_brand_or_category_show=0;
 
 		 $brandBox.css({
 			top:cTop + 60,
@@ -58,6 +59,7 @@ $(function(){
 	 			return;
 	 		}
 	 		*/
+	 		head_brand_or_category_show=1;
 	 		if(head_brand_load_for_0==1 && classifyId==0){
 	 			$brandBox.show();
 	 			return;
@@ -104,6 +106,7 @@ $(function(){
 	 			return;
 	 		}
 	 		*/
+	 		head_brand_or_category_show=1;
 	 		if(head_category_load_for_0==1&&brandId==0){
 	 			$classifyBox.show();
  				return;
@@ -313,38 +316,60 @@ $(function(){
 		});	
 		
 		*/
+		function mouse_enter_brand_action(){
+			$('#aside_nav_brand').find('.classification').addClass('current');
+			brandId=0;
+			show_aside_brand();
+		}
 		
+		function mouse_leave_brand_action(){
+			$('#aside_nav_brand').find('.classification').removeClass('current');
+			//$this.find('.submenubox').hide();
+			$asideBrandBox.hide();
+		}
+		
+		function mouse_enter_classification_action(){
+			$('#aside_nav_classify').find('.classification').addClass('current');
+			classifyId=0;
+			show_aside_category();
+		}
+		
+		function mouse_leave_classification_action(){
+			$('#aside_nav_classify').find('.classification').removeClass('current');
+			//$this.find('.submenubox').hide();
+			$asideClassifyBox.hide();
+		}
 		//左侧品牌
 		$('#aside_nav_brand').on({
 			mouseenter:function(){
-				var $this = $(this);
-				$this.find('.classification').addClass('current');
-				brandId=0;
-				show_aside_brand();
+				//防止与head导航上的冲突
+				if(head_brand_or_category_show == 1){
+					return;
+				}
+				mouse_leave_classification_action();
+				mouse_enter_brand_action();
 			},
 			mouseleave:function(){
-				var $this = $(this);
-				$this.find('.classification').removeClass('current');
-				//$this.find('.submenubox').hide();
-				$asideBrandBox.hide();
+				mouse_leave_brand_action();
 			}
 		});	
 		
 		//左侧分类 
 		$('#aside_nav_classify').on({
 			mouseenter:function(){
-				var $this = $(this);
-				$this.find('.classification').addClass('current');
-				classifyId=0;
-				show_aside_category();
+				//防止与head导航上的冲突
+				if(head_brand_or_category_show == 1){
+					return;
+				}
+				mouse_leave_brand_action();
+				mouse_enter_classification_action();
 			},
 			mouseleave:function(){
-				var $this = $(this);
-				$this.find('.classification').removeClass('current');
-				//$this.find('.submenubox').hide();
-				$asideClassifyBox.hide();
+				mouse_leave_classification_action();
 			}
 		});	
+		
+		
 		
 		//show aside brand
 	 	function show_aside_brand(){

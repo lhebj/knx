@@ -69,6 +69,13 @@
 														visible : true
 													},
 
+													subscript : {
+														visible : false
+													},
+													superscript : {
+														visible : false
+													},
+
 													undo : {
 														visible : true
 													},

@@ -41,7 +41,9 @@
 				<div class="map_address">
 					<!-- <img src="<%=IMAGE_PATH %>map_address.png"/> -->
 					<div id="my_address">
-						<iframe width="604" height="465" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/WDBib"></iframe>
+						<!-- http://api.map.baidu.com/mapCard/ -->
+						<!-- <iframe width="604" height="465" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/WDBib"></iframe>-->
+						<iframe width="604" height="465" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/3tKtb"></iframe>
 					</div>
 					<p class="callout">
 						地图位标注仅供参考，具体情况以实际位置为主

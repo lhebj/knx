@@ -34,15 +34,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%@ include file="common/head.jsp"%>
 		<div class="content">
 			<%@ include file="common/left-brand-category.jsp"%>
-			<div class="listContainer clearfix">
-				<!-- 搜索后的产品列表 -->
-				<ul>
+			<div style="float:left;">
+				<div class="listContainer">
+					<ul class="clearfix">
 					<c:forEach items="${productDTOList}" var="productDTO">
-						<li>
+					    <li>
 							<div class="listWrap">
-								<a href="product.do?action=detail&id=${productDTO.idPrd}"> <img
-									src="${productDTO.logoPath}" alt="img">
-								</a>
+								<a href="product.do?action=detail&id=${productDTO.idPrd}">
+									<img src="${productDTO.logoPath}" onload="imagezoom.call(this, 120, 150);" alt="img">
+							    </a>
 								<div class="toolInfo">
 									<p class="detailInfo">${productDTO.namePrd}</p>
 									<p class="detailInfo">${productDTO.modelPrd}</p>
@@ -50,9 +50,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</li>
 					</c:forEach>
-				</ul>
-				<div class="pageWrap">${pageutil}</div>
-			</div>
+					</ul>
+					<div class="pageWrap">
+						${pageutil}	
+					</div>
+				</div>
+		   </div>
 		</div>
 		<%@ include file="common/footer.jsp"%>
 	</div>

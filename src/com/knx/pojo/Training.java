@@ -119,6 +119,10 @@ public class Training implements java.io.Serializable {
 		TrainingSimpleDTO dto = new TrainingSimpleDTO();
 		dto.setIdTra(idTra);
 		dto.setTitleTra(titleTra);
+		dto.setShowNew(false);
+		if(dateCreateTra != null && DateUtil.compareDateIsLarger(new Date(), DateUtil.getAfter(dateCreateTra, 5, DateUtil.DAY))){
+			dto.setShowNew(true);
+		}
 		return dto;
 	}
 

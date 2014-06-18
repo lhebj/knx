@@ -42,7 +42,7 @@
 			<ul>
 				<c:forEach items="${newsSimpleDtoList}" var="newsDto">
 					<li><a class="news_list" title="${newsDto.titleN}"
-						href="news.do?id=${newsDto.idN}">${newsDto.titleN}</a></li>
+						href="news.do?id=${newsDto.idN}"><c:if test="${newsDto.showNew==true}"><span style="background: none repeat scroll 0 0 #FF3333;color: #FFFFFF;">new</span></c:if>${newsDto.titleN}</a></li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -52,7 +52,7 @@
 			<ul>
 				<c:forEach items="${trainingSimpleDtoList}" var="trainingDto">
 					<li><a class="news_list" title="${trainingDto.titleTra}"
-						href="training.do?id=${trainingDto.idTra}">${trainingDto.titleTra}</a></li>
+						href="training.do?id=${trainingDto.idTra}"><c:if test="${trainingDto.showNew==true}"><span style="background: none repeat scroll 0 0 #FF3333;color: #FFFFFF;">new</span></c:if>${trainingDto.titleTra}</a></li>
 				</c:forEach>
 			</ul>
 		</div>

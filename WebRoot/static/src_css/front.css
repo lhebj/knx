@@ -21,11 +21,12 @@
 .tool_control_container .left_wrap{float: left;margin-left: 342px;margin-top:30px;background-color: #353736;padding: 18px 15px;}
 .tool_control_container .controlContainer{float: left;height: 134px;width: 272px;}
 
+
 .tool_control_container  .weatherInfo{color:#fff;width: 122px;height:122px;padding:2px;float:left;margin-right:6px;border: 1px solid #DBDBDB;font-size:10px;}
 .tool_control_container  .weatherInfo .position{margin-bottom: 6px;}
 .weatherInfo .detailInfo,.weatherInfo .weatherImg{float: left;}
 .weatherInfo .detailInfo .condition ,.weatherInfo .detailInfo .temperature{width: 42px;display: block;word-wrap:break-word;}
-.weatherInfo .detailInfo .temperature{margin-top: 34px;}
+.weatherInfo .detailInfo .temperature{margin-top: 24px;}
 .weatherInfo .dataInfo{clear:both;}
 /*.weatherInfo .weatherImg{height: 70px;width: 80px;margin-left: 25px;}*/
 .weatherInfo .weatherImg{height: 70px;width: 70px;margin-left: 4px;}

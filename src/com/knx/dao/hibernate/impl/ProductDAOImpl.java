@@ -108,11 +108,11 @@ public class ProductDAOImpl implements IProductDAO {
 	}
 
 	@Override
-	public List<Product> getProductListByName(int start, int limit, String name) {
+	public List<Product> getProductListByModel(int start, int limit, String modelPrd) {
 		// TODO Auto-generated method stub
-		String hql = " from Product where namePrd like :namePrd ";
+		String hql = " from Product where modelPrd like :modelPrd ";
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("namePrd", "%" + name + "%");
+		param.put("modelPrd", "%" + modelPrd + "%");
 		return basicHibernateDao.getResultList(start, limit, hql, param);
 	}
 

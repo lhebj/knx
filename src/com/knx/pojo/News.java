@@ -119,6 +119,10 @@ public class News implements java.io.Serializable {
 		NewsSimpleDTO dto = new NewsSimpleDTO();
 		dto.setIdN(idN);
 		dto.setTitleN(titleN);
+		dto.setShowNew(false);
+		if(dateCreateN != null && DateUtil.compareDateIsLarger(new Date(), DateUtil.getAfter(dateCreateN, 5, DateUtil.DAY))){
+			dto.setShowNew(true);
+		}
 		return dto;
 	}
 

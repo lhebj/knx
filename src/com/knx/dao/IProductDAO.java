@@ -30,7 +30,7 @@ public interface IProductDAO {
 	
 	public int getProductTotalCount();
 	
-	public List<Product> getProductListByName (int start, int limit, String name); 
+	public List<Product> getProductListByModel (int start, int limit, String modelPrd); 
 	
 	public int getProductTotalCountByName(String name); 
 }

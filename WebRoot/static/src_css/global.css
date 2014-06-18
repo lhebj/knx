@@ -64,7 +64,8 @@ a,a:focus,a:hover{
     position:absolute;
     background-color:#fff;
     z-index:1000;
-    width: 500px;
+   /* width: 500px;*/
+    width: 750px;
     top:5px;
     left:223px;
     padding: 10px;
@@ -82,7 +83,8 @@ a,a:focus,a:hover{
     filter:alpha(opacity=90);
     background-color:#fff;
     z-index:1000;
-    width: 500px;
+    /* width: 500px;*/
+    width: 750px;
     padding: 10px;
     display: none;
 }

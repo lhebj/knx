@@ -3,6 +3,7 @@ package com.knx.web.dto;
 public class NewsSimpleDTO {
 	private Long idN;
 	private String titleN;
+	private Boolean showNew;
 	public Long getIdN() {
 		return idN;
 	}
@@ -14,6 +15,12 @@ public class NewsSimpleDTO {
 	}
 	public void setTitleN(String titleN) {
 		this.titleN = titleN;
+	}
+	public Boolean getShowNew() {
+		return showNew;
+	}
+	public void setShowNew(Boolean showNew) {
+		this.showNew = showNew;
 	}
 	
 }

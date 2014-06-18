@@ -220,9 +220,9 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public List<ProductDTO> getProductDTOListByName(int start, int limit, String name) {
+	public List<ProductDTO> getProductListByModel(int start, int limit, String modelPrd) {
 		List<ProductDTO> dtoList = new ArrayList<ProductDTO>();
-		List<Product> list = productDAO.getProductListByName(start, limit, name);
+		List<Product> list = productDAO.getProductListByModel(start, limit, modelPrd);
 		for (Product product : list) {
 			dtoList.add(product.toDTO());
 		}

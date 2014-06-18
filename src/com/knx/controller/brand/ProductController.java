@@ -86,7 +86,7 @@ public class ProductController {
 		int totalCount = productService.getProductTotalCountByName(wd);
 		PageUtil pageUtil = new PageUtil(totalCount, curPage, pageSize);
 		;
-		List<ProductDTO> productDTOList = productService.getProductDTOListByName(pageUtil.getStart(), pageUtil.getEnd(), wd);
+		List<ProductDTO> productDTOList = productService.getProductListByModel(pageUtil.getStart(), pageUtil.getEnd(), wd);
 
 		model.addAttribute("wd", wd);
 		model.addAttribute("productDTOList", productDTOList);

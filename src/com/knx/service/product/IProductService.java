@@ -40,7 +40,7 @@ public void saveOrUpdateProduct(Product product);
 	
 	public int getProductTotalCountByName(String name);
 	
-	public List<ProductDTO> getProductDTOListByName (int start, int limit, String name); 
+	public List<ProductDTO> getProductListByModel (int start, int limit, String modelPrd); 
 	
 	
 	public void saveOrUpdateProductDetail(ProductDetail bd);

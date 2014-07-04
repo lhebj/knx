@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="<%=CSS_PATH%>classify.css?version=<%=version%>">
   </head>
   
-  <body>
+  <body onselectstart="return false">
 	  <div class="container clearfix">
 	  <%@ include file="common/head.jsp" %>
 	  

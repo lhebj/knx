@@ -29,7 +29,7 @@
 	href="<%=CSS_PATH%>detail.css?version=<%=version%>">
 </head>
 
-<body>
+<body onselectstart="return false">
 	<div class="container clearfix">
 		<%@ include file="common/head.jsp"%>
 

@@ -2,10 +2,11 @@
     pageEncoding="utf-8"%>
 <%@ page import="java.util.HashMap" %>
 <%
-	String version="201406271012";
+	String version="201407051012";
 	String PATH = request.getContextPath();
 	String BASE_Path = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+PATH+"/";
-	String debug = request.getParameter("debug"); 
+	String debug = request.getParameter("debug");
+	//String debug = "true";  
 	String STATIC_PATH = BASE_Path + "static/";
 	String CSS_PATH = STATIC_PATH + "stylecss_optimize/";
 	String JS_PATH = STATIC_PATH + "js_optimize/";

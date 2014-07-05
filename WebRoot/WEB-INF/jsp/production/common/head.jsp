@@ -8,7 +8,7 @@
 <script type="text/javascript" src="<%=JS_PATH %>jquery.js"></script>
 <script type="text/javascript" src="<%=JS_PATH %>header.js?version=<%=version%>"></script>
 <div class="logoWrap">
-	<a href="/knx" class="logo">
+	<a href="/" class="logo">
 		<img src="<%= IMAGE_PATH %>/logo.png" alt="logo"/>
 	</a>
 </div>

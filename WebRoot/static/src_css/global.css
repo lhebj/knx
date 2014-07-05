@@ -104,6 +104,9 @@ a,a:focus,a:hover{
 .brand_submenubox li .nav_item:hover,.submenubox li .nav_item:hover,.classify_submenubox li .nav_item:hover,.submenubox li .nav_item:hover{
     color:#0166b1;
 }
+.nav_item{
+	
+}
 .item_disabled{
 	color:#333333;
 }

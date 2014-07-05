@@ -64,4 +64,10 @@
 }
 .content .listContainer{width: 600px;padding-left:30px;}
 
-
+.news-title{
+	font-size:14px;
+	font-weight:bold; 
+}
+.news-content{
+	text-align:justify;
+}

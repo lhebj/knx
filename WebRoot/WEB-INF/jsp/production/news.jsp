@@ -29,11 +29,11 @@
 		<div class="content clearfix">
 			<%@ include file="common/left-brand-category.jsp"%>
 			<div class="listContainer clearfix">
-				<div>${currentNewsDTO.titleN}</div>
+				<div class="news-title">${currentNewsDTO.titleN}</div>
 				<div>
 					<img src="${currentNewsDTO.pic}">
 				</div>
-				<div>${currentNewsDTO.contentN}</div>
+				<div class="news-content">${currentNewsDTO.contentN}</div>
 			</div>
 
 		</div>

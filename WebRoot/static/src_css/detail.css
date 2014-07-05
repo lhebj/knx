@@ -91,6 +91,9 @@
 .address_supplier_zh span,.address_supplier_en span,{
 	font:normal 14px "Microsoft YaHei",微软雅黑;
 }
+.supplier_zh{
+	font:bold 14px "Microsoft YaHei",微软雅黑;
+}
 .type{
 	font:bold 14px "Microsoft YaHei",微软雅黑;
 	margin-bottom: 10px;

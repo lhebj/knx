@@ -75,12 +75,12 @@ $(function(){
 					a.sort();
 					$("#head_brand_ul").empty();
 					 $.each(a, function (name, key) {  
-				         $("#head_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='brand_li_"+key+"'></div></li>");
+				         $("#head_brand_ul").append("<li><div class=\"sort_title\">"+key+"</div><div id='brand_li_"+key+"'></div></li>");
 				         $.each(json.result.map[key].list, function (i, brandDTO) { 
 				        	 if(brandDTO.show){
-				        		 $("#brand_li_"+key).append("<a href=\"javascript:;\" data-id=\""+brandDTO.idBrd+"\" class=\"nav_item\">"+brandDTO.nameBrd+" </a>"); 
+				        		 $("#brand_li_"+key).append("</br><a href=\"javascript:;\" data-id=\""+brandDTO.idBrd+"\" class=\"nav_item\">"+brandDTO.nameBrd+" </a>"); 
 				        	 }else{
-				        		 $("#brand_li_"+key).append("<span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
+				        		 $("#brand_li_"+key).append("</br><span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
 				        	 }
 							 
 				         }); 
@@ -391,12 +391,12 @@ $(function(){
 					a.sort();
 					$("#aside_brand_ul").empty();
 					 $.each(a, function (name, key) {  
-				         $("#aside_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div class=\"detail\" id='aside_brand_li_"+key+"'></div></li>");
+				         $("#aside_brand_ul").append("<li><span class=\"sort_title\">"+key+"</span><div id='aside_brand_li_"+key+"'></div></li>");
 				         $.each(json.result.map[key].list, function (i, brandDTO) { 
 				        	 if(brandDTO.show){
-				        		 $("#aside_brand_li_"+key).append("<a href=\"javascript:;\" id=\""+brandDTO.idBrd+"\" class=\"item\">"+brandDTO.nameBrd+" </a>"); 
+				        		 $("#aside_brand_li_"+key).append("</br><a href=\"javascript:;\" id=\""+brandDTO.idBrd+"\" class=\"item\">"+brandDTO.nameBrd+" </a>"); 
 				        	 }else{
-				        		 $("#aside_brand_li_"+key).append("<span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
+				        		 $("#aside_brand_li_"+key).append("</br><span class=\"item_disabled\">"+brandDTO.nameBrd+"</span>");
 				        	 }
 							 
 				         }); 

@@ -82,11 +82,11 @@
 						<!--供货商中文地址-->
 						<div class="address_supplier_zh">
 							<p>
-								<span class="supplier_zh">供货商</span><br /> 
+								<span class="supplier_zh">供货商</span><br/> 
 								<%if(WebUtil.isGuest()) { %>
-									<span class="address_zh">请登陆后了解详情</span>
+									<span>请登陆后了解详情</span>
 								<%} else {%>
-									<span class="address_zh">${productDetailDTO.supplierPrdd}</span>
+									<span>${productDetailDTO.supplierPrdd}</span>
 								<%} %>
 							</p>
 						</div>

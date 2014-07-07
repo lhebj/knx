@@ -147,21 +147,21 @@
 		<input name="id" type="hidden" value="${brandDetailDTO.idBrd}" />
 		<table>
 			<tr>
-				<td width='60'>品牌名称</td>
+				<td width='180'>品牌名称</td>
 				<td><input name="nameBrd" type="text"
-					style="width:900px;height:30px" value="${brandDetailDTO.nameBrd}" /></td>
+					style="width:820px;height:30px" value="${brandDetailDTO.nameBrd}" /></td>
 			</tr>
 			<tr>
-				<td width='60'>品牌介绍</td>
-				<td height='200'><textarea id="wysiwyg"
-						style="width:900px;height:200px" name="introductionBrdd">${brandDetailDTO.introductionBrdd}</textarea></td>
+				<td width='180'>品牌介绍</td>
+				<td height='180'><textarea id="wysiwyg"
+						style="width:820px;height:200px" name="introductionBrdd">${brandDetailDTO.introductionBrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='60'>logo图片</td>
+				<td width='180'>logo图片<br>(最佳尺寸：345 * 218)</td>
 				<td><input name="logo" type="FILE" id="logo" size="50" />${brandDetailDTO.logoFileName}</td>
 			</tr>
 			<tr>
-				<td width='60'></td>
+				<td width='180'></td>
 				<td><input class="btn btn-primary" name="ok" type="submit"
 					value="提交"> <input type="button" value="取消" class="btn"
 					onclick="javascript:window.history.go(-1);" /></td>

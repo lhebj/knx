@@ -538,11 +538,11 @@
 						style="width:820px;height:100px" name="supplierPrdd">${productDetailDTO.supplierPrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='100'>产品列表页显示图片</td>
+				<td width='100'>产品列表页显示图片<br>(最佳尺寸：120 * 150)</td>
 				<td><input name="logo" type="FILE" id="logo" size="50" />  ${productDetailDTO.productDTO.logoName}  </td>
 			</tr>
 			<tr>
-				<td width='100'>产品页面第一张大图</br>(最佳尺寸：184 * 184)</td>
+				<td width='100'>产品页面第一张大图<br>(最佳尺寸：184 * 184)</td>
 				<td><input name="big_pic" type="FILE" id="bigPic" size="50" />  ${productDetailDTO.idbigpicNamePrdd}  </td>
 			</tr>
 			<tr>

@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="<%=LocalizationUtil.getClientString("SEO.Keywords", request) %>">
 	<meta http-equiv="description" content="<%=LocalizationUtil.getClientString("SEO.Description", request) %>">
 <link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>global.css?version=<%=version%>">
-<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>train.css?version=<%=version%>">
+<link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>news.css?version=<%=version%>">
 </head>
 <body>
 	<div class="container clearfix">
@@ -27,9 +27,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="content">
 			<%@ include file="common/left-brand-category.jsp" %>
 			<div class="listContainer clearfix">
-				<div>${currentTrainingDTO.titleTra}</div>
+				<div class="news-title">${currentTrainingDTO.titleTra}</div>
 	    		<div><img src="${currentTrainingDTO.pic}"></div>
-	    		<div>${currentTrainingDTO.contentTra}</div>
+	    		<div class="news-content">${currentTrainingDTO.contentTra}</div>
 			</div>
 			<%@ include file="common/footer.jsp" %>
 		</div>

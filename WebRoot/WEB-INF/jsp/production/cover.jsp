@@ -42,13 +42,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 						<span class="condition">${weatherData.weather}</span>
 						<span class="temperature">${weatherData.currentTemp}℃</span>	
+						<span class="pm">AQI ${aqiData.aqi}</span>
 					
 				</div>
 				<div class="weatherImg">
 					<img src="weather/${weatherData.imgCode}" onload="imagezoom.call(this, 70, 70);" alt="${weatherData.weather}">
 				</div>
 				<div class="dataInfo">
-					<p class="pm">AQI ${aqiData.aqi}</p>
 					<p class="data">2013-12-21 星期三</p>
 				</div>
 			</div>

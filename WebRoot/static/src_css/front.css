@@ -22,14 +22,16 @@
 .tool_control_container .controlContainer{float: left;height: 134px;width: 272px;}
 
 
-.tool_control_container  .weatherInfo{color:#fff;width: 122px;height:122px;padding:2px;float:left;margin-right:6px;border: 1px solid #DBDBDB;font-size:10px;}
+.tool_control_container  .weatherInfo{color:#fff;height:122px;padding:2px;float:left;margin-right:6px;border: 1px solid #DBDBDB;font-size:12px;}
 .tool_control_container  .weatherInfo .position{margin-bottom: 6px;}
 .weatherInfo .detailInfo,.weatherInfo .weatherImg{float: left;}
-.weatherInfo .detailInfo .condition ,.weatherInfo .detailInfo .temperature{width: 42px;display: block;word-wrap:break-word;}
-.weatherInfo .detailInfo .temperature{margin-top: 24px;}
-.weatherInfo .dataInfo{clear:both;}
+/*.weatherInfo .detailInfo .condition ,.weatherInfo .detailInfo .temperature,.weatherInfo .detailInfo .pm{width: 61px;display: block;word-wrap:break-word;}*/
+.weatherInfo .detailInfo .condition ,.weatherInfo .detailInfo .temperature,.weatherInfo .detailInfo .pm{display: block;}
+.weatherInfo .detailInfo .temperature{margin-top: 15px;}
+.weatherInfo .detailInfo .pm{margin-top: 15px;}
+.weatherInfo .dataInfo{clear:both;margin-top: 15px;}
 /*.weatherInfo .weatherImg{height: 70px;width: 80px;margin-left: 25px;}*/
-.weatherInfo .weatherImg{height: 70px;width: 70px;margin-left: 4px;}
+.weatherInfo .weatherImg{height: 70px;width: 70px;margin-left: 0px;}
 .tool_control_container  .enter{float:left;line-height: 172px;text-align: center;margin-top:30px;}
 .tool_control_container  .enter .enter_index{height: 172px;width:136px;display:inline-block;color:#4e4e4e;background: url('../image/enter.png') no-repeat scroll right 50% transparent;}
 .tool_control_container .controlContainer li{float: left;margin: 0 6px 3px 0;}

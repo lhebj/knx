@@ -94,6 +94,8 @@ public class RegisterController {
 			JSONHelperUtil.outputOperationResultAsJSON(Boolean.TRUE, "success", response);
 			return null;
 		}
-		return "redirect:/index.do";
+		JSONHelperUtil.outputOperationResultAsJSON(Boolean.TRUE, "success", response);
+		return null;
+//		return "redirect:/index.do";
 	}
 }

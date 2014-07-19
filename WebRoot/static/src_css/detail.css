@@ -71,6 +71,7 @@
 .right_item .list_des_wrap{
 	border-bottom: 1px solid #8abadc;
 	padding:26px 0 30px;
+	text-align: justify;
 }
 .right_item .list_des_wrap .topImg{
 	height: 54px;

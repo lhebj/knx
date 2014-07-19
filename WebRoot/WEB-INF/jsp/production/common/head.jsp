@@ -115,7 +115,7 @@
 							<span class="require_icon_des">*</span><span><%=LocalizationUtil.getClientString("infoRequired", request) %></span>
 						</p>
 						<p id="tip" class="tip_error"></p>
-						<a class="submit" href="javascript:void(0)"><%=LocalizationUtil.getClientString("CreateAccount", request) %></a>
+						<a class="submit" href="javascript:void(0)"><%=LocalizationUtil.getClientString("Register", request) %></a>
 					</div>
 			    <!-- </form> -->
 				<div class="login_info">

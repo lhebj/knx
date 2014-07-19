@@ -157,10 +157,10 @@ public class ProductAdminController {
 			}
 
 			pd.setPlacePrdd(placePrdd);
-			pd.setFeaturesPrdd(featuresPrdd);
-			pd.setIntroductionPrdd(introductionPrdd);
-			pd.setSupplierPrdd(supplierPrdd);
-			pd.setParametersPrdd(parametersPrdd);
+			pd.setFeaturesPrdd(StringUtil.filterWordFormatAndSomeHTML(featuresPrdd));
+			pd.setIntroductionPrdd(StringUtil.filterWordFormatAndSomeHTML(introductionPrdd));
+			pd.setSupplierPrdd(StringUtil.filterWordFormatAndSomeHTML(supplierPrdd));
+			pd.setParametersPrdd(StringUtil.filterWordFormatAndSomeHTML(parametersPrdd));
 			pd.setDateCreatePrdd(new Date());
 
 			if (bigPicMap.get(UploadFileUtil.UPLOAD_FILE) != null) {

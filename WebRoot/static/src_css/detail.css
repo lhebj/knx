@@ -74,8 +74,8 @@
 	text-align: justify;
 }
 .right_item .list_des_wrap .topImg{
-	height: 54px;
-	width: 243px;
+	height: 124px;
+	width: 314px;
 }
 .right_item .list_des_wrap label.name,.right_item .list_des_wrap .des_content{
 	float:left;
@@ -91,12 +91,25 @@
 .right_item .list_des_wrap .product_detail{
 	word-wrap:break-word;
 }
-.left_list,.right_list{
+
+.left_des_content{
+	width: 136px;
+	word-wrap:break-word;
+}
+
+.right_des_content{
+	width: 96px;
+	word-wrap:break-word;
+}
+
+.left_list{
 	float: left;
-	width: 156px;
+	width: 176px;
 }
 .right_list{
 	margin-left: 2px;
+	float: left;
+	width: 136px;
 }
 .product_des_list .des_ico{
 	display: inline-block;

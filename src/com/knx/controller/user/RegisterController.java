@@ -12,13 +12,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
+import com.knx.messagefactory.MailBody;
 import com.knx.pojo.Authority;
 import com.knx.pojo.User;
 import com.knx.pojo.UserAuthority;
 import com.knx.service.user.IUserService;
 import com.knx.web.util.CommonStaticConst;
 import com.knx.web.util.JSONHelperUtil;
+import com.knx.web.util.KnxConfig;
 import com.knx.web.util.MD5Util;
+import com.knx.web.util.MailSenderUtil;
 import com.knx.web.util.ParamUtils;
 import com.knx.web.util.RunAsAdminManager;
 import com.knx.web.util.StringUtil;
@@ -84,7 +87,7 @@ public class RegisterController {
 			ua.setIduUaut(user.getIdU());
 			ua.setIdautUaut(Authority.ID_USER);
 			userService.saveOrUpdateUserAuthority(ua);
-
+			this.sendEmailToAdmin(user);
 			RunAsAdminManager.authenticationRestore(daoAuthenticationProvider, user);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,5 +100,25 @@ public class RegisterController {
 		JSONHelperUtil.outputOperationResultAsJSON(Boolean.TRUE, "success", response);
 		return null;
 //		return "redirect:/index.do";
+	}
+	
+	private void sendEmailToAdmin(User user){
+		MailBody mailbody = new MailBody();
+		mailbody.setFrom(KnxConfig.MAIL_USERNAME);
+		mailbody.setPersonal("阳光普罗旺斯");
+		mailbody.setTo(KnxConfig.EMAIL_RECIPIENT);
+		mailbody.setSubject("用户注册");
+		mailbody.setText("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><body>" +
+				"<table> " +
+				"<tr><td>姓名：</td><td>"+user.getUsernameU()+"</td></tr>" +
+				"<tr><td>Email：</td><td>"+user.getEmailU()+"</td></tr>" +
+				"<tr><td>微信：</td><td>"+user.getWeixinU()+"</td></tr>" +
+				"<tr><td>ip：</td><td>"+user.getIpU()+"</td></tr>" +
+				"</table>" +
+				"</body></html>");
+		mailbody.setActivated(true);
+		mailbody.setWillSend(true);
+		MailSenderUtil.sendMimeMail(mailbody);
+		System.out.println("sendEmailToAdmin " + mailbody.getTo());
 	}
 }

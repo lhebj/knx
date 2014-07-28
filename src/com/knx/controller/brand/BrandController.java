@@ -70,10 +70,11 @@ public class BrandController {
 			List<ProductDTO> productDTOList = null;
 			PageUtil pageUtil = null;
 			String pageLink = null;
+			
 			if(categoryId != 0) {
-				totalCount = productService.getProductTotalCountByCategoryId(categoryId);
+				totalCount = productService.getProductTotalCountByBrandIdAndCategoryId(id, categoryId);
 				pageUtil = new PageUtil(totalCount, curPage, pageSize);
-				productDTOList = productService.getProductDTOListByCategoryId(pageUtil.getStart(), pageUtil.getEnd(), categoryId);
+				productDTOList = productService.getProductDTOListByBrandIdAndCategoryId(pageUtil.getStart(), pageUtil.getEnd(), id, categoryId);
 				pageLink = "brand.do?action=detail&id="+id + "&categoryId="+categoryId;
 			}else {
 				totalCount = productService.getProductTotalCountByBrandId(id);
@@ -105,7 +106,7 @@ public class BrandController {
 					for(BrandDTO dto: brandDTOMap.get(key)){
 						dto.setShow(false);
 						for(BrandDTO showDto: dtoList){
-							if(dto.getIdBrd()==showDto.getIdBrd()){
+							if(dto.getIdBrd().longValue()==showDto.getIdBrd().longValue()){
 								dto.setShow(true);
 							}
 						}

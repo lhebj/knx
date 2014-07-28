@@ -33,7 +33,7 @@ public class CategoryController {
 				for(CategoryDTO dto: categoryDTOList){
 					dto.setShow(false);
 					for(CategoryDTO showDto: dtoList){
-						if(dto.getIdCat()==showDto.getIdCat()){
+						if(dto.getIdCat().longValue()==showDto.getIdCat().longValue()){
 							dto.setShow(true);
 						}
 					}

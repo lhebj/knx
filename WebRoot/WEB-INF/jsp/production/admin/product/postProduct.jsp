@@ -470,7 +470,7 @@
 			value="${productDetailDTO.productDTO.idPrd}" />
 		<table>
 			<tr>
-				<td width='100'>所属品牌</td>
+				<td width='220'>所属品牌</td>
 				<td>					
 					<select class="selectpicker" name="idbrdPrd">
 						<c:forEach items="${brandDTOList}" var="brandDTO">
@@ -485,7 +485,7 @@
 					</td>
 			</tr>
 			<tr>
-				<td width='100'>所属分类</td>
+				<td width='220'>所属分类</td>
 				<td>
 					<select class="selectpicker" name="idcatPrd">
 						<c:forEach items="${categoryDTOList}" var="categoryDTO">
@@ -500,93 +500,93 @@
 					</td>
 			</tr>
 			<tr>
-				<td width='200'>产品名称</td>
+				<td width='220'>产品名称(必填*)</td>
 				<td><input name="namePrd" type="text"
-					style="width:820px;height:30px"
+					style="width:800px;height:30px"
 					value="${productDetailDTO.productDTO.namePrd}" /></td>
 			</tr>
 			<tr>
-				<td width='200'>产品型号</td>
+				<td width='220'>产品型号(必填*)</td>
 				<td><input name="modelPrd" type="text"
-					style="width:820px;height:30px"
+					style="width:800px;height:30px"
 					value="${productDetailDTO.productDTO.modelPrd}" /></td>
 			</tr>
 			<tr>
-				<td width='100'>产品产地</td>
+				<td width='220'>产品产地(必填*)</td>
 				<td><input name="placePrdd" type="text"
-					style="width:820px;height:30px"
+					style="width:800px;height:30px"
 					value="${productDetailDTO.placePrdd}" /></td>
 			</tr>
 			<tr>
-				<td width='100'>产品简介</td>
+				<td width='220'>产品简介</td>
 				<td height='200'><textarea id="introductionPrddWysiwyg"
-						style="width:820px;height:200px" name="introductionPrdd">${productDetailDTO.introductionPrdd}</textarea></td>
+						style="width:800px;height:200px" name="introductionPrdd">${productDetailDTO.introductionPrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='100'>产品参数</td>
+				<td width='220'>产品参数</td>
 				<td height='200'><textarea id="parametersPrddWysiwyg"
-						style="width:820px;height:200px" name="parametersPrdd">${productDetailDTO.parametersPrdd}</textarea></td>
+						style="width:800px;height:200px" name="parametersPrdd">${productDetailDTO.parametersPrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='100'>产品特性</td>
+				<td width='220'>产品特性</td>
 				<td height='200'><textarea id="featuresPrddWysiwyg"
-						style="width:820px;height:200px" name="featuresPrdd">${productDetailDTO.featuresPrdd}</textarea></td>
+						style="width:800px;height:200px" name="featuresPrdd">${productDetailDTO.featuresPrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='100'>供货商</td>
-				<td height='100'><textarea id="supplierPrdddWysiwyg"
-						style="width:820px;height:100px" name="supplierPrdd">${productDetailDTO.supplierPrdd}</textarea></td>
+				<td width='220'>供货商</td>
+				<td height='220'><textarea id="supplierPrdddWysiwyg"
+						style="width:800px;height:100px" name="supplierPrdd">${productDetailDTO.supplierPrdd}</textarea></td>
 			</tr>
 			<tr>
-				<td width='100'>产品列表页显示图片<br>(最佳尺寸：120 * 150)</td>
+				<td width='220'>产品列表页显示图片(必填*)<br>(最佳尺寸：120 * 150)</td>
 				<td><input name="logo" type="FILE" id="logo" size="50" />  ${productDetailDTO.productDTO.logoName}  </td>
 			</tr>
 			<tr>
-				<td width='100'>产品页面第一张大图<br>(最佳尺寸：184 * 184)</td>
+				<td width='220'>产品页面第一张大图(必填*)<br>(最佳尺寸：184 * 184)</td>
 				<td><input name="big_pic" type="FILE" id="bigPic" size="50" />  ${productDetailDTO.idbigpicNamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'></td>
+				<td width='220'></td>
 				<td>以下小图图片上传时选择和上面的大图一样尺寸 </td>
 			</tr>
 			<tr>
-				<td width='100'>小图1</td>
+				<td width='220'>小图1</td>
 				<td><input name="small_pic_1" type="FILE" id="smallPic1"
 					size="50" />  ${productDetailDTO.idsmallpic1NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>小图2</td>
+				<td width='220'>小图2</td>
 				<td><input name="small_pic_2" type="FILE" id="smallPic2"
 					size="50" />  ${productDetailDTO.idsmallpic2NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>小图3</td>
+				<td width='220'>小图3</td>
 				<td><input name="small_pic_3" type="FILE" id="smallPic3"
 					size="50" />  ${productDetailDTO.idsmallpic3NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>小图4</td>
+				<td width='220'>小图4</td>
 				<td><input name="small_pic_4" type="FILE" id="smallPic4"
 					size="50" />  ${productDetailDTO.idsmallpic4NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>小图5</td>
+				<td width='220'>小图5</td>
 				<td><input name="small_pic_5" type="FILE" id="smallPic5"
 					size="50" />  ${productDetailDTO.idsmallpic5NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>小图6</td>
+				<td width='220'>小图6</td>
 				<td><input name="small_pic_6" type="FILE" id="smallPic6"
 					size="50" />  ${productDetailDTO.idsmallpic6NamePrdd}  </td>
 			</tr>
 			<tr>
-				<td width='100'>产品页产品Logo</td>
+				<td width='220'>产品页产品Logo<br>(最佳尺寸：314 * 124)</td>
 				<td><input name="detail_logo" type="FILE" id="detailLogo"
 					size="50" />  ${productDetailDTO.iddetaillogoNamePrdd}  </td>
 			</tr>
 			
 			<tr>
-				<td width='100'>下载专区</td>
+				<td width='220'>下载专区</td>
 				<td>
 					<table id="downloadFileTable">
 						<tr>
@@ -609,7 +609,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td width='100'></td>
+				<td width='220'></td>
 				<td><input class="btn btn-primary" name="ok" type="submit"
 					value="提交"> <input type="button" value="取消" class="btn"
 					onclick="javascript:window.history.go(-1);" /></td>

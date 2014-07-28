@@ -103,9 +103,9 @@
 					<div class="right_item">
 						<div class="list_des_wrap ico_des">
 							<a href="javascript:;"> <img
-								src="${productDetailDTO.iddetaillogoPrdd}" class="topImg"
+								src="${productDetailDTO.iddetaillogoPrdd}" 
 								alt="${productDetailDTO.iddetaillogoNamePrdd}"
-								onload="imagezoom.call(this, 243, 54);">
+								onload="imagezoom.call(this, 314, 124);">
 							</a>
 						</div>
 						<div class="list_des_wrap clearfix">
@@ -114,19 +114,19 @@
 							<div class="left_list">
 								<ul>
 									<li class="list_des"><label class="name">名称：</label> <span
-										class="des_content">${productDetailDTO.productDTO.namePrd}
+										class="left_des_content">${productDetailDTO.productDTO.namePrd}
 									</span></li>
 									<li class="list_des"><label class="name">品牌：</label> <span
-										class="des_content">${productDetailDTO.brandDTO.nameBrd}
+										class="left_des_content">${productDetailDTO.brandDTO.nameBrd}
 									</span></li>
 								</ul>
 							</div>
 							<div class="right_list">
 								<ul>
 									<li class="list_des"><label class="name">产地：</label> <span
-										class="des_content">${productDetailDTO.placePrdd} </span></li>
+										class="right_des_content">${productDetailDTO.placePrdd} </span></li>
 									<li class="list_des"><label class="name">分类：</label> <span
-										class="des_content">${productDetailDTO.categoryDTO.nameCat}
+										class="right_des_content">${productDetailDTO.categoryDTO.nameCat}
 									</span></li>
 								</ul>
 							</div>

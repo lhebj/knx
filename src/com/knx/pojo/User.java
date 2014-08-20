@@ -39,6 +39,7 @@ public class User implements java.io.Serializable {
 	private String ipU;
 	private String refererU;
 	private Boolean isEnabledU;
+	private String backupInfo;
 
 	// Constructors
 
@@ -47,7 +48,7 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Long idU, String usernameU, String passwordU, String saltU, String emailU, String weixinU, Date dateRegisterU, String ipU, String refererU, Boolean isEnabledU) {
+	public User(Long idU, String usernameU, String passwordU, String saltU, String emailU, String weixinU, Date dateRegisterU, String ipU, String refererU, Boolean isEnabledU, String backupInfo) {
 		this.idU = idU;
 		this.usernameU = usernameU;
 		this.passwordU = passwordU;
@@ -58,6 +59,7 @@ public class User implements java.io.Serializable {
 		this.ipU = ipU;
 		this.refererU = refererU;
 		this.isEnabledU = isEnabledU;
+		this.backupInfo = backupInfo;
 	}
 
 	// Property accessors
@@ -154,6 +156,15 @@ public class User implements java.io.Serializable {
 		this.isEnabledU = isEnabledU;
 	}
 	
+	@Column(name = "backup_info_u", length = 128)
+	public String getBackupInfo() {
+		return backupInfo;
+	}
+
+	public void setBackupInfo(String backupInfo) {
+		this.backupInfo = backupInfo;
+	}
+
 	public UserDTO toDTO(){
 		UserDTO dto = new UserDTO();
 		dto.setIdU(idU);

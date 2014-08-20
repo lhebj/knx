@@ -77,6 +77,13 @@
 
 		<!--注册 && 登陆-->
 		<div class="registrationWrap">
+			<input type="hidden" id="Register_Success" value="<%=LocalizationUtil.getClientString("Register_Success", request) %>">
+			<input type="hidden" id="Register_Check" value="<%=LocalizationUtil.getClientString("Register_Check", request) %>">
+			<input type="hidden" id="Register_Password_Not_Match" value="<%=LocalizationUtil.getClientString("Register_Password_Not_Match", request) %>">
+			<input type="hidden" id="Login_Enter_Username" value="<%=LocalizationUtil.getClientString("Login_Enter_Username", request) %>">
+			<input type="hidden" id="Login_Enter_Password" value="<%=LocalizationUtil.getClientString("Login_Enter_Password", request) %>">
+			
+			
 			  <!--  <form name="form1" id="form1" method="POST">   -->
 					<div class="registration_info">
 						<h2><%=LocalizationUtil.getClientString("Register", request) %></h2>

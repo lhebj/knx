@@ -105,7 +105,7 @@ public class RegisterController {
 	private void sendEmailToAdmin(User user){
 		MailBody mailbody = new MailBody();
 		mailbody.setFrom(KnxConfig.MAIL_USERNAME);
-		mailbody.setPersonal("阳光普罗旺斯");
+		mailbody.setPersonal("GO KNX");
 		mailbody.setTo(KnxConfig.EMAIL_RECIPIENT);
 		mailbody.setSubject("用户注册");
 		mailbody.setText("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></head><body>" +

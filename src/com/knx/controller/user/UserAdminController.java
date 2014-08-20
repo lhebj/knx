@@ -33,6 +33,8 @@ public class UserAdminController {
 			}
 			User user = userService.findUserByUsername(username);
 			user.setIsEnabledU(false);
+			user.setBackupInfo(user.getEmailU());
+			user.setEmailU(null);
 			userService.saveOrUpdateUser(user);
 //			userService.deleteUserById(id);						
 		} catch (Exception e) {

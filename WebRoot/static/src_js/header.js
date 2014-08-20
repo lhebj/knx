@@ -208,10 +208,12 @@ $(function(){
 
 			$tip.hide();
 			if(userName==''||email==''||weiXin==''||password==''){
-				$tip.html('请检查必填项').show();
+				var Register_Check=$('#Register_Check')[0].value;
+				$tip.html(Register_Check).show();
 				return;
 			}else if(password != rePassword){
-				$tip.html('两次输入的密码不一致').show();
+				var Register_Password_Not_Match=$('#Register_Password_Not_Match')[0].value; 
+				$tip.html(Register_Password_Not_Match).show();
 				return;
 			}
 			$.post('register.do', {
@@ -225,6 +227,8 @@ $(function(){
 				if(!!json.success){
 					//隐藏注册
 					$registrationWrap.hide();
+					var Register_Success=$('#Register_Success').val();
+					alert(Register_Success);
 					window.location.reload(); 
 				}else{
 					$tip.html(json.message).show();
@@ -240,11 +244,13 @@ $(function(){
 			    passWord = $('#j_password').val();
 			 $loginError.hide();
 			 if(userName ==''){
-			 	$loginError.html('请输入用户名').show();
+				var Login_Enter_Username=$('#Login_Enter_Username')[0].value; 
+			 	$loginError.html(Login_Enter_Username).show();
 			 	return;
 			 }
 			 if(passWord ==''){
-			 	$loginError.html('请输入密码').show();
+				var Login_Enter_Password=$('#Login_Enter_Password')[0].value; 
+			 	$loginError.html(Login_Enter_Password).show();
 			 	return;
 			 }
 			$.post('login.do', {

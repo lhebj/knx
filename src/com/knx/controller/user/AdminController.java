@@ -391,7 +391,7 @@ public class AdminController {
 		int totalCount = productService.getProductTotalCountByBrandIdAndCategoryId(brandId, categoryId);
 		pageUtil = new PageUtil(totalCount, curPage, pageSize);
 		productDTOList = productService.getProductDTOListByBrandIdAndCategoryId(pageUtil.getStart(), pageUtil.getEnd(), brandId, categoryId);
-		pageLink = "admin.do?action=manageProduct";
+		pageLink = "admin.do?action=manageProduct&brandId="+brandId+"&categoryId="+categoryId;
 		model.addAttribute("productDTOList", productDTOList);
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("pageutil", pageUtil.getToolBar(pageLink, request));

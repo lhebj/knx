@@ -149,6 +149,10 @@ public class ProductAdminController {
 			product.setCategory(category);
 			product.setNamePrd(namePrd);
 			product.setModelPrd(modelPrd);
+			
+			//检查是否有删除图片
+			this.processDeletePicFiles(request, product, pd);
+			
 
 			if (logoMap.get(UploadFileUtil.UPLOAD_FILE) != null) {
 				Content content = (Content) logoMap.get(UploadFileUtil.UPLOAD_FILE);
@@ -227,6 +231,15 @@ public class ProductAdminController {
 		return "redirect:/admin.do?action=manageProduct&categoryId=" + idcatPrd + "&brandId=" + idbrdPrd;
 	}
 
+	/**
+	 * 
+	  * 处理上传附件
+	  * 
+	  * @param request
+	  * @param product
+	  * @param fileMap    
+	  * @return void
+	 */
 	private void processUploadFiles(HttpServletRequest request, Product product, Map<String, Map<String, Object>> fileMap) {
 		Map<String, Object> uploadFileMap = null;
 		for (int i = 1; i <= ProductDownload.MAX_UPLOADFILES; i++) {
@@ -267,6 +280,62 @@ public class ProductAdminController {
 			}
 		}
 
+	}
+	
+	/**
+	 * 
+	  * 检查是否有删除图片
+	  *
+	  * @param request
+	  * @param product
+	  * @param pd    
+	  * @return void
+	 */
+	private void processDeletePicFiles(HttpServletRequest request, Product product, ProductDetail pd) {
+		boolean logoDeleteFlag = ParamUtils.getBooleanParameter(request, "logoDeleteFlag");
+		if(logoDeleteFlag){
+			product.setLogo(null);
+		}
+		
+		boolean bigPicDeleteFlag = ParamUtils.getBooleanParameter(request, "bigPicDeleteFlag");
+		if(bigPicDeleteFlag){
+			pd.setIdbigpicPrdd(null);
+		}
+		
+		boolean idsmallpic1NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic1NamePrddDeleteFlag");
+		if(idsmallpic1NamePrddDeleteFlag){
+			pd.setIdsmallpic1Prdd(null);
+		}
+		
+		boolean idsmallpic2NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic2NamePrddDeleteFlag");
+		if(idsmallpic2NamePrddDeleteFlag){
+			pd.setIdsmallpic2Prdd(null);
+		}
+		
+		boolean idsmallpic3NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic3NamePrddDeleteFlag");
+		if(idsmallpic3NamePrddDeleteFlag){
+			pd.setIdsmallpic3Prdd(null);
+		}
+		
+		boolean idsmallpic4NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic4NamePrddDeleteFlag");
+		if(idsmallpic4NamePrddDeleteFlag){
+			pd.setIdsmallpic4Prdd(null);
+		}
+		
+		boolean idsmallpic5NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic5NamePrddDeleteFlag");
+		if(idsmallpic5NamePrddDeleteFlag){
+			pd.setIdsmallpic5Prdd(null);
+		}
+		
+		boolean idsmallpic6NamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "idsmallpic6NamePrddDeleteFlag");
+		if(idsmallpic6NamePrddDeleteFlag){
+			pd.setIdsmallpic6Prdd(null);
+		}
+		
+		boolean iddetaillogoNamePrddDeleteFlag = ParamUtils.getBooleanParameter(request, "iddetaillogoNamePrddDeleteFlag");
+		if(iddetaillogoNamePrddDeleteFlag){
+			pd.setIddetaillogoPrdd(null);
+		}
 	}
 
 	@RequestMapping(params = "action=delete")

@@ -39,3 +39,14 @@ function DeleteOldFile(idPrd, event) {
 				+ "," + idPrd;
 	}
 }
+
+
+function DeletePicFile(deleteFlag, fileNameFlag) {
+	var gnl = confirm("你真的确定要删除吗?");
+	if (gnl == false) {
+		return true;
+	} else {
+		document.getElementById(deleteFlag).value = true;
+		document.getElementById(fileNameFlag).innerHTML="";
+	}
+}

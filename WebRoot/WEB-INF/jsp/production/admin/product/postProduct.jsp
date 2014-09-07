@@ -539,11 +539,23 @@
 			</tr>
 			<tr>
 				<td width='220'>产品列表页显示图片(必填*)<br>(最佳尺寸：120 * 150)</td>
-				<td><input name="logo" type="FILE" id="logo" size="50" />  ${productDetailDTO.productDTO.logoName}  </td>
+				<td><input name="logo" type="FILE" id="logo" size="50" />  
+					<input id="logoDeleteFlag" name="logoDeleteFlag" type="hidden" value="false" />
+					<c:if test="${productDetailDTO.productDTO.logoName != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('logoDeleteFlag', 'logoFileNameFlag')" /> 
+						<span id='logoFileNameFlag'>${productDetailDTO.productDTO.logoName}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>产品页面第一张大图(必填*)<br>(最佳尺寸：184 * 184)</td>
-				<td><input name="big_pic" type="FILE" id="bigPic" size="50" />  ${productDetailDTO.idbigpicNamePrdd}  </td>
+				<td><input name="big_pic" type="FILE" id="bigPic" size="50" />  
+					<input id="bigPicDeleteFlag" name="bigPicDeleteFlag" type="hidden" value="false" />
+					<c:if test="${productDetailDTO.idbigpicNamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('bigPicDeleteFlag', 'bigPicFileNameFlag')" /> 
+						<span id='bigPicFileNameFlag'>${productDetailDTO.idbigpicNamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'></td>
@@ -551,38 +563,73 @@
 			</tr>
 			<tr>
 				<td width='220'>小图1</td>
-				<td><input name="small_pic_1" type="FILE" id="smallPic1"
-					size="50" />  ${productDetailDTO.idsmallpic1NamePrdd}  </td>
+				<td><input name="small_pic_1" type="FILE" id="smallPic1" size="50" />  
+					<input id="idsmallpic1NamePrddDeleteFlag" name="idsmallpic1NamePrddDeleteFlag" type="hidden" value="false" />
+					<c:if test="${productDetailDTO.idsmallpic1NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic1NamePrddDeleteFlag', 'idsmallpic1NamePrddFlag')" /> 
+						<span id='idsmallpic1NamePrddFlag'>${productDetailDTO.idsmallpic1NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>小图2</td>
-				<td><input name="small_pic_2" type="FILE" id="smallPic2"
-					size="50" />  ${productDetailDTO.idsmallpic2NamePrdd}  </td>
+				<td><input name="small_pic_2" type="FILE" id="smallPic2" size="50" />
+					<input id="idsmallpic2NamePrddDeleteFlag" name="idsmallpic2NamePrddDeleteFlag" type="hidden" value="false" />
+					<c:if test="${productDetailDTO.idsmallpic2NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic2NamePrddDeleteFlag', 'idsmallpic2NamePrddFlag')" /> 
+						<span id='idsmallpic2NamePrddFlag'>${productDetailDTO.idsmallpic2NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>小图3</td>
-				<td><input name="small_pic_3" type="FILE" id="smallPic3"
-					size="50" />  ${productDetailDTO.idsmallpic3NamePrdd}  </td>
+				<td><input name="small_pic_3" type="FILE" id="smallPic3" size="50" />
+					<input id="idsmallpic3NamePrddDeleteFlag" name="idsmallpic3NamePrddDeleteFlag" type="hidden"	value="false" />
+					<c:if test="${productDetailDTO.idsmallpic3NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic3NamePrddDeleteFlag', 'idsmallpic3NamePrddFlag')" /> 
+						<span id='idsmallpic3NamePrddFlag'>${productDetailDTO.idsmallpic3NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>小图4</td>
-				<td><input name="small_pic_4" type="FILE" id="smallPic4"
-					size="50" />  ${productDetailDTO.idsmallpic4NamePrdd}  </td>
+				<td><input name="small_pic_4" type="FILE" id="smallPic4" size="50" />
+					<input id="idsmallpic4NamePrddDeleteFlag" name="idsmallpic4NamePrddDeleteFlag" type="hidden"	value="false" />
+					<c:if test="${productDetailDTO.idsmallpic4NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic4NamePrddDeleteFlag', 'idsmallpic4NamePrddFlag')" /> 
+						<span id='idsmallpic4NamePrddFlag'>${productDetailDTO.idsmallpic4NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>小图5</td>
-				<td><input name="small_pic_5" type="FILE" id="smallPic5"
-					size="50" />  ${productDetailDTO.idsmallpic5NamePrdd}  </td>
+				<td><input name="small_pic_5" type="FILE" id="smallPic5" size="50" />
+					<input id="idsmallpic5NamePrddDeleteFlag" name="idsmallpic5NamePrddDeleteFlag" type="hidden"	value="false" />
+					<c:if test="${productDetailDTO.idsmallpic5NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic5NamePrddDeleteFlag', 'idsmallpic5NamePrddFlag')" /> 
+						<span id='idsmallpic5NamePrddFlag'>${productDetailDTO.idsmallpic5NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>小图6</td>
-				<td><input name="small_pic_6" type="FILE" id="smallPic6"
-					size="50" />  ${productDetailDTO.idsmallpic6NamePrdd}  </td>
+				<td><input name="small_pic_6" type="FILE" id="smallPic6" size="50" />
+					<input id="idsmallpic6NamePrddDeleteFlag" name="idsmallpic6NamePrddDeleteFlag" type="hidden"	value="false" />
+					<c:if test="${productDetailDTO.idsmallpic6NamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('idsmallpic6NamePrddDeleteFlag', 'idsmallpic6NamePrddFlag')" /> 
+						<span id='idsmallpic6NamePrddFlag'>${productDetailDTO.idsmallpic6NamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			<tr>
 				<td width='220'>产品页产品Logo<br>(最佳尺寸：314 * 124)</td>
-				<td><input name="detail_logo" type="FILE" id="detailLogo"
-					size="50" />  ${productDetailDTO.iddetaillogoNamePrdd}  </td>
+				<td><input name="detail_logo" type="FILE" id="detailLogo" size="50" />  
+					<input id="iddetaillogoNamePrddDeleteFlag" name="iddetaillogoNamePrddDeleteFlag" type="hidden"	value="false" />
+					<c:if test="${productDetailDTO.iddetaillogoNamePrdd != null}">
+						<input type="button" value="删除" onclick="DeletePicFile('iddetaillogoNamePrddDeleteFlag', 'iddetaillogoNamePrddFlag')" /> 
+						<span id='iddetaillogoNamePrddFlag'>${productDetailDTO.iddetaillogoNamePrdd}</span> 
+					</c:if> 
+				</td>
 			</tr>
 			
 			<tr>

@@ -27,6 +27,8 @@
 	href="<%=CSS_PATH%>global.css?version=<%=version%>">
 <link rel="stylesheet" type="text/css"
 	href="<%=CSS_PATH%>detail.css?version=<%=version%>">
+	
+	<%@ include file="common/tongji.jsp"%>
 </head>
 
 <body onselectstart="return false">

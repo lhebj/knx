@@ -20,6 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="<%=LocalizationUtil.getClientString("SEO.Description", request) %>">
 <link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>global.css?version=<%=version%>">
 <link rel="stylesheet" type="text/css" href="<%=CSS_PATH %>news.css?version=<%=version%>">
+
+<%@ include file="common/tongji.jsp"%>
 </head>
 <body>
 	<div class="container clearfix">

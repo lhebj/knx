@@ -26,6 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	href="<%=CSS_PATH%>global.css?version=<%=version%>">
 <link rel="stylesheet" type="text/css"
 	href="<%=CSS_PATH%>index.css?version=<%=version%>">
+	
+	<%@ include file="common/tongji.jsp"%>
 </head>
 <body>
 	<div class="container clearfix">

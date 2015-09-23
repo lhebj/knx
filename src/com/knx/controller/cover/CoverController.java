@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.knx.web.util.LogUtil;
 import com.knx.web.util.StringUtil;
+import com.weather.HaosouWeather;
 import com.weather.Weather;
-import com.weather.WeatherComCnCityCode;
-import com.weather.WeatherComCnWeather;
 import com.weather.WeatherData;
 import com.weather.aqi.AQI;
 import com.weather.aqi.AQIData;
@@ -43,8 +42,8 @@ public class CoverController {
 			Geo geo = new SinaGeoImpl();
 			GeoData geoData = geo.getGeoDataByIp(ip);
 			LogUtil.log.info("cover geo: " + ip + ", " + geoData.getCountry()+", "+geoData.getProvince()+", "+geoData.getCity());
-			Weather weather = new WeatherComCnWeather();
-			WeatherData weatherData = weather.getCurrentDayWeather(WeatherComCnCityCode.CITY_CODE.get(geoData.getCity()));
+			Weather weather = new HaosouWeather();
+			WeatherData weatherData = weather.getCurrentDayWeather(geoData.getCity());
 			model.addAttribute("weatherData",  weatherData);	
 			
 			AQI aqi = new SosoAQI();
